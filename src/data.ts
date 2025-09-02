@@ -51,12 +51,14 @@ export const testimonials = [
     name: "Arjun Mehta",
     username: "@arjun_career_change",
   },
+  /*
   {
     text: "The quality of education and support from both EduBh and Manipal University exceeded my expectations. Worth every penny!",
     imageSrc: avatar8.src,
     name: "Pooja Agarwal",
     username: "@pooja_mba_student",
   },
+  */
   {
     text: "Fast-track learning with recognized degrees - EduBh made my educational goals achievable within my busy schedule.",
     imageSrc: avatar9.src,

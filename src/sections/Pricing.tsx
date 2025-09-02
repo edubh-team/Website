@@ -4,12 +4,12 @@ import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import SectionHeader from "@/components/section-header";
 // import IITP from "@/assets/Indian_Institute_of_Technology,_Patna.png"; // Commented out IITP logo
-import Manipal from "@/assets/manipal.png";
+// import Manipal from "@/assets/manipal.png"; // Commented out Manipal logo
 import Amity from "@/assets/amity.png";
 
 // Placeholder background images - replace with actual university specific background images
 // import IITPBackground from "@/assets/iit-patna-online-bsc.webp"; // Using bits.png as a placeholder
-import ManipalBackground from "@/assets/manipal-uni.jpg"; // Using noodle.png as a placeholder
+// import ManipalBackground from "@/assets/manipal-uni.jpg"; // Commented out Manipal background image
 import AmityBackground from "@/assets/amity-university-noida.jpg"; // Using pyramid.png as a placeholder
 
 const DummyContent = ({ description, duration, mode }: { description: string; duration: string; mode: string }) => {
@@ -37,6 +37,7 @@ const data = [
     backgroundImage: IITPBackground,
   },
   */
+  /*
   {
     category: "University",
     title: "Manipal Academy of Higher Education",
@@ -45,6 +46,7 @@ const data = [
     website: "https://manipal.edu/",
     backgroundImage: ManipalBackground,
   },
+  */
   {
     category: "University",
     title: "Amity University",

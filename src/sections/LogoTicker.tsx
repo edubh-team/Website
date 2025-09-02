@@ -1,7 +1,7 @@
 "use client";
 
 import amityLogo from "@/assets/amity.png";
-import manipalLogo from "@/assets/manipal.png";
+// import manipalLogo from "@/assets/manipal.png"; // Commented out Manipal logo
 import bitsLogo from "@/assets/bits.png";
 // import iitPatnaLogo from "@/assets/Indian_Institute_of_Technology,_Patna.png"; // Commented out IIT Patna logo
 import { ScrollTextReveal } from "@/components/ui/scroll-text-reveal";
@@ -23,13 +23,6 @@ export const LogoTicker = () => {
         <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
           <motion.div
             className="flex gap-14 flex-none pr-14"
-            animate={{ translateX: "-50%" }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear",
-              repeatType: "loop",
-            }}
           >
             {/* University Partner Logos */}
             <Image
@@ -37,11 +30,11 @@ export const LogoTicker = () => {
               alt="Amity Online University"
               className="logo-ticker-image h-20 w-auto"
             />
-            <Image
+            {/* <Image
               src={manipalLogo}
               alt="Manipal Online University"
               className="logo-ticker-image h-20 w-auto"
-            />
+            /> */}
             {/* <Image
               src={iitPatnaLogo}
               alt="IIT Patna"
@@ -58,11 +51,11 @@ export const LogoTicker = () => {
               alt="Amity Online University"
               className="logo-ticker-image h-20 w-auto"
             />
-            <Image
+            {/* <Image
               src={manipalLogo}
               alt="Manipal Online University"
               className="logo-ticker-image h-20 w-auto"
-            />
+            /> */}
             {/* <Image
               src={iitPatnaLogo}
               alt="IIT Patna"

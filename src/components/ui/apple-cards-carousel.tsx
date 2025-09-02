@@ -38,41 +38,8 @@ export const CarouselContext = createContext<{
 export const Carousel = ({ items }: CarouselProps) => {
   const carouselRef = React.useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
-  const [isPaused, setIsPaused] = useState(false);
   const [canScrollLeft, setCanScrollLeft] = React.useState(false);
   const [canScrollRight, setCanScrollRight] = React.useState(true);
-
-  // Smooth and seamless infinite auto-scroll using requestAnimationFrame (desktop/tablet only)
-  useEffect(() => {
-    if (isPaused) return;
-    let frameId: number;
-    const getScrollStep = () => {
-      if (typeof window !== 'undefined') {
-        return 0.3; // mobile
-      }
-      return 0.5;
-    };
-    const step = () => {
-      if (carouselRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
-        const itemWidth = scrollWidth / allItems.length; // Assuming all items have roughly the same width
-        const middle = items.length; // Index of the start of the second set of original items
-
-        // If at the end of the duplicated section, reset to the middle
-        if (scrollLeft + clientWidth >= scrollWidth - 1) {
-          carouselRef.current.scrollLeft = middle * itemWidth;
-        } else if (scrollLeft <= 0) { // If at the beginning, reset to the middle
-          carouselRef.current.scrollLeft = middle * itemWidth;
-        } 
-        else {
-          carouselRef.current.scrollLeft += getScrollStep();
-        }
-      }
-      frameId = requestAnimationFrame(step);
-    };
-    frameId = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(frameId);
-  }, [isPaused]);
 
   const handleCardClick = (index: number) => {
     setCurrentIndex(index);
@@ -100,7 +67,6 @@ export const Carousel = ({ items }: CarouselProps) => {
         <div
           className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-20"
           ref={carouselRef}
-          onMouseLeave={() => setIsPaused(false)}
           onScroll={checkScrollability}
         >
           <div

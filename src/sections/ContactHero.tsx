@@ -76,7 +76,7 @@ export default function ContactHero() {
                 </div>
                 <h3 className="text-lg font-semibold text-[#010D3E] mb-2">Phone</h3>
                 <p className="text-gray-600 text-sm mb-3">Call us for immediate assistance</p>
-                <p className="text-[#1A3EC3] font-semibold">+91 8777076176</p>
+                <p className="text-[#1A3EC3] font-semibold">+91 8240501323</p>
                 <p className="text-gray-500 text-sm mt-1">Mon-Sat: 9 AM - 7 PM</p>
               </motion.div>
 
