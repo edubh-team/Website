@@ -1,12 +1,11 @@
 "use client";
 
-import productImage from "@/assets/product-image.png";
 import pyramidImage from "@/assets/pyramid.png";
 import tubeImage from "@/assets/tube.png";
-import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import SectionHeader from "@/components/section-header";
+import AboutSection from "@/components/AboutSection";
 
 export const ProductShowcase = () => {
   const sectionRef = useRef(null);
@@ -33,7 +32,7 @@ export const ProductShowcase = () => {
           description="Join thousands of students who have transformed their careers with our industry-aligned programs and cutting-edge learning platform."
         />
         <div className="relative">
-          <Image src={productImage} alt="product Image" className="mt-10" />
+          <AboutSection />
           <motion.img
             style={{ translateY: translateY }}
             src={pyramidImage.src}

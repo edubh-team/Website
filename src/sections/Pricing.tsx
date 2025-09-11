@@ -3,13 +3,13 @@
 import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import SectionHeader from "@/components/section-header";
-// import IITP from "@/assets/Indian_Institute_of_Technology,_Patna.png"; // Commented out IITP logo
-// import Manipal from "@/assets/manipal.png"; // Commented out Manipal logo
+// import IITP from "@/assets/Indian_Institute_of_Technology,_Patna.png";
+// import Manipal from "@/assets/manipal.png";
 import Amity from "@/assets/amity.png";
 
 // Placeholder background images - replace with actual university specific background images
-// import IITPBackground from "@/assets/iit-patna-online-bsc.webp"; // Using bits.png as a placeholder
-// import ManipalBackground from "@/assets/manipal-uni.jpg"; // Commented out Manipal background image
+// import IITPBackground from "@/assets/iit-patna-online-bsc.webp";
+// import ManipalBackground from "@/assets/manipal-uni.jpg";
 import AmityBackground from "@/assets/amity-university-noida.jpg"; // Using pyramid.png as a placeholder
 
 const DummyContent = ({ description, duration, mode }: { description: string; duration: string; mode: string }) => {
@@ -27,26 +27,30 @@ const DummyContent = ({ description, duration, mode }: { description: string; du
 };
 
 const data = [
-  /*
   {
     category: "University",
-    title: "Indian Institute of Technology, Patna",
-    src: IITP,
-    content: <DummyContent description="One of the most prestigious engineering institutes in India, offering undergraduate and postgraduate programs in various engineering and science disciplines." duration="4 Years" mode="On-Campus" />,
-    website: "https://www.iitp.ac.in/",
-    backgroundImage: IITPBackground,
+    title: "Amity University",
+    src: Amity,
+    content: <DummyContent description="A multi-campus private university offering a wide range of undergraduate and postgraduate courses in diverse fields like engineering, management, law, and mass communication." duration="Various" mode="On-Campus/Online" />,
+    website: "https://www.amity.edu/",
+    backgroundImage: AmityBackground,
   },
-  */
-  /*
   {
     category: "University",
-    title: "Manipal Academy of Higher Education",
-    src: Manipal,
-    content: <DummyContent description="A leading private university known for its programs in health sciences, engineering, management, and humanities. It has a strong focus on research and innovation." duration="Various" mode="On-Campus/Online" />,
-    website: "https://manipal.edu/",
-    backgroundImage: ManipalBackground,
+    title: "Amity University",
+    src: Amity,
+    content: <DummyContent description="A multi-campus private university offering a wide range of undergraduate and postgraduate courses in diverse fields like engineering, management, law, and mass communication." duration="Various" mode="On-Campus/Online" />,
+    website: "https://www.amity.edu/",
+    backgroundImage: AmityBackground,
   },
-  */
+  {
+    category: "University",
+    title: "Amity University",
+    src: Amity,
+    content: <DummyContent description="A multi-campus private university offering a wide range of undergraduate and postgraduate courses in diverse fields like engineering, management, law, and mass communication." duration="Various" mode="On-Campus/Online" />,
+    website: "https://www.amity.edu/",
+    backgroundImage: AmityBackground,
+  },
   {
     category: "University",
     title: "Amity University",

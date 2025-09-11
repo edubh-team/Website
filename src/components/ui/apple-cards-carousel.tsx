@@ -36,26 +36,7 @@ export const CarouselContext = createContext<{
 }>({ currentIndex: 0, setCurrentIndex: () => {} });
 
 export const Carousel = ({ items }: CarouselProps) => {
-  const carouselRef = React.useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(-1);
-  const [canScrollLeft, setCanScrollLeft] = React.useState(false);
-  const [canScrollRight, setCanScrollRight] = React.useState(true);
-
-  const handleCardClick = (index: number) => {
-    setCurrentIndex(index);
-  };
-
-  const checkScrollability = () => {
-    if (carouselRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
-      const itemWidth = scrollWidth / allItems.length;
-      const middleStart = items.length * itemWidth;
-      const middleEnd = (items.length * 2) * itemWidth;
-
-      setCanScrollLeft(scrollLeft > middleStart + 1);
-      setCanScrollRight(scrollLeft + clientWidth < middleEnd - 1);
-    }
-  };
 
   const allItems = [...items, ...items, ...items]; // Duplicate items for infinite scroll
 
@@ -66,19 +47,19 @@ export const Carousel = ({ items }: CarouselProps) => {
       <div className="relative w-full">
         <div
           className="flex w-full overflow-x-scroll overscroll-x-auto scroll-smooth py-10 [scrollbar-width:none] md:py-20"
-          ref={carouselRef}
-          onScroll={checkScrollability}
         >
-          <div
-            className={cn(
-              "absolute right-0 z-[1000] h-auto w-[5%] overflow-hidden bg-gradient-to-l",
-            )}
-          ></div>
-
-          <div
-            className={cn(
-              "flex flex-row justify-start gap-4 pl-4",
-            )}
+          <motion.div
+            animate={{
+              x: ["0%", "-100%"],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                ease: "linear",
+                duration: 45,
+              },
+            }}
+            className="flex flex-row justify-start gap-4"
           >
             {allItems.map((item, index) => (
               <motion.div
@@ -102,7 +83,7 @@ export const Carousel = ({ items }: CarouselProps) => {
                 {item}
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </CarouselContext.Provider>

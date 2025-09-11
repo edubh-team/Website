@@ -1,12 +1,20 @@
 "use client";
 
 import amityLogo from "@/assets/amity.png";
-// import manipalLogo from "@/assets/manipal.png"; // Commented out Manipal logo
-import bitsLogo from "@/assets/bits.png";
-// import iitPatnaLogo from "@/assets/Indian_Institute_of_Technology,_Patna.png"; // Commented out IIT Patna logo
+// import bitsLogo from "@/assets/bits.png";
+// import manipalLogo from "@/assets/manipal.png";
+// import iitPatnaLogo from "@/assets/Indian_Institute_of_Technology,_Patna.png";
 import { ScrollTextReveal } from "@/components/ui/scroll-text-reveal";
 import Image from "next/image";
 import { motion } from "framer-motion";
+
+const allLogos = [
+  amityLogo,
+  // manipalLogo,
+  // bitsLogo,
+  // iitPatnaLogo,
+  amityLogo,amityLogo,amityLogo,amityLogo,amityLogo,amityLogo,amityLogo,
+];
 
 export const LogoTicker = () => {
   return (
@@ -23,49 +31,31 @@ export const LogoTicker = () => {
         <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
           <motion.div
             className="flex gap-14 flex-none pr-14"
+            animate={{
+              translateX: ["0%", "-100%"],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "linear",
+            }}
           >
-            {/* University Partner Logos */}
-            <Image
-              src={amityLogo}
-              alt="Amity Online University"
-              className="logo-ticker-image h-20 w-auto"
-            />
-            {/* <Image
-              src={manipalLogo}
-              alt="Manipal Online University"
-              className="logo-ticker-image h-20 w-auto"
-            /> */}
-            {/* <Image
-              src={iitPatnaLogo}
-              alt="IIT Patna"
-              className="logo-ticker-image h-20 w-auto"
-            /> */}
-            {/* <Image
-              src={bitsLogo}
-              alt="BITS Pilani"
-              className="logo-ticker-image h-20 w-auto"
-            /> */}
-            {/* SECOND BATCH FOR ANIMATION */}
-            <Image
-              src={amityLogo}
-              alt="Amity Online University"
-              className="logo-ticker-image h-20 w-auto"
-            />
-            {/* <Image
-              src={manipalLogo}
-              alt="Manipal Online University"
-              className="logo-ticker-image h-20 w-auto"
-            /> */}
-            {/* <Image
-              src={iitPatnaLogo}
-              alt="IIT Patna"
-              className="logo-ticker-image h-20 w-auto"
-            /> */}
-            {/* <Image
-              src={bitsLogo}
-              alt="BITS Pilani"
-              className="logo-ticker-image h-20 w-auto"
-            /> */}
+            {allLogos.map((logo, index) => (
+              <Image
+                key={index}
+                src={logo}
+                alt="University Logo"
+                className="logo-ticker-image h-20 w-auto"
+              />
+            ))}
+            {allLogos.map((logo, index) => (
+              <Image
+                key={`duplicate-${index}`}
+                src={logo}
+                alt="University Logo"
+                className="logo-ticker-image h-20 w-auto"
+              />
+            ))}
           </motion.div>
         </div>
       </div>
