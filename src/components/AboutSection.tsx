@@ -47,7 +47,7 @@ const AboutSection = () => {
             <p className="mt-2 text-base text-gray-600">CEO & Founder</p>
             <p className="text-sm text-gray-500">With over 8 years of experience in educational leadership and technology.</p>
           </motion.div>
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 50, rotate: -5 }}
             whileInView={{ opacity: 1, y: 0, rotate: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -58,7 +58,7 @@ const AboutSection = () => {
             <h3 className="text-xl font-semibold text-gray-900">Administrator 2</h3>
             <p className="mt-2 text-base text-gray-600">Jane Smith - Head of Programs</p>
             <p className="text-sm text-gray-500">Expert in curriculum development and industry partnerships.</p>
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>
