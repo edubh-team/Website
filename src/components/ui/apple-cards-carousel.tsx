@@ -78,7 +78,6 @@ export const Carousel = ({ items }: CarouselProps) => {
                 }}
                 key={"card" + index}
                 className="rounded-3xl"
-                onClick={() => handleCardClick(index)}
               >
                 {item}
               </motion.div>
