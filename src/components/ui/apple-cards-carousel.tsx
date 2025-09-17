@@ -33,16 +33,49 @@ type Card = {
 export const CarouselContext = createContext<{
   currentIndex: number;
   setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
-}>({ currentIndex: 0, setCurrentIndex: () => {} });
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  selectedCard: Card | null;
+  setSelectedCard: React.Dispatch<React.SetStateAction<Card | null>>;
+}>({ currentIndex: 0, setCurrentIndex: () => {}, open: false, setOpen: () => {}, selectedCard: null, setSelectedCard: () => {} });
 
 export const Carousel = ({ items }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(-1);
+  const [open, setOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState<Card | null>(null);
 
   const allItems = [...items, ...items, ...items]; // Duplicate items for infinite scroll
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useOutsideClick(containerRef, () => handleClose());
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedCard(null);
+    setCurrentIndex(-1);
+  };
+
+  useEffect(() => {
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        handleClose();
+      }
+    }
+
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
   return (
     <CarouselContext.Provider
-      value={{ currentIndex, setCurrentIndex }}
+      value={{ currentIndex, setCurrentIndex, open, setOpen, selectedCard, setSelectedCard }}
     >
       <div className="relative w-full">
         <div
@@ -85,57 +118,10 @@ export const Carousel = ({ items }: CarouselProps) => {
           </motion.div>
         </div>
       </div>
-    </CarouselContext.Provider>
-  );
-};
 
-export const Card = ({
-  card,
-  index,
-  layout = false,
-}: {
-  card: Card;
-  index: number;
-  layout?: boolean;
-}) => {
-  const [open, setOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { setCurrentIndex } = useContext(CarouselContext);
-
-  useEffect(() => {
-    function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        handleClose();
-      }
-    }
-
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [open]);
-
-  useOutsideClick(containerRef, () => handleClose());
-
-  const handleOpen = () => {
-    setOpen(true);
-    setCurrentIndex(index);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    setCurrentIndex(-1);
-  };
-
-  return (
-    <>
       <AnimatePresence>
-        {open && (
-          <div key={card.title} className="fixed inset-0 z-50 flex items-center justify-center overflow-auto">
+        {open && selectedCard && (
+          <div key={selectedCard.title} className="fixed inset-0 z-50 flex items-center justify-center overflow-auto">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -151,20 +137,20 @@ export const Card = ({
               className="relative z-[60] mx-auto max-w-4xl w-full rounded-3xl bg-gradient-to-br from-white to-blue-50 dark:from-neutral-800 dark:to-neutral-900 p-4 md:p-6 shadow-xl"
               ref={containerRef}
             >
-              <Image src={card.src} alt={card.title} width={120} height={120} className="mb-4" />
+              <Image src={selectedCard.src} alt={selectedCard.title} width={120} height={120} className="mb-4" />
               <motion.p
                 className="text-base font-medium text-gray-600 dark:text-white"
               >
-                {card.category}
+                {selectedCard.category}
               </motion.p>
               <motion.p
                 className="mt-4 text-3xl md:text-5xl font-bold text-neutral-800 dark:text-white leading-tight"
               >
-                {card.title}
+                {selectedCard.title}
               </motion.p>
-              <div className="py-6 text-gray-700 dark:text-gray-300 leading-relaxed">{card.content}</div>
+              <div className="py-6 text-gray-700 dark:text-gray-300 leading-relaxed">{selectedCard.content}</div>
               <div className="flex justify-start items-center gap-4 mt-4">
-                {card.website && (
+                {selectedCard.website && (
                   <a
                     href="/courses"
                     target="_blank"
@@ -185,35 +171,56 @@ export const Card = ({
           </div>
         )}
       </AnimatePresence>
-      <motion.button
-        layoutId={layout ? `card-${card.title}` : undefined}
-        onClick={handleOpen}
-        className="relative z-10 flex h-60 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-blue-500/20 md:h-[30rem] md:w-96"
-      >
-        {card.backgroundImage && (
-          <Image 
-            src={typeof card.backgroundImage === 'string' ? card.backgroundImage : card.backgroundImage.src}
-            alt={card.title}
-            fill
-            className="absolute inset-0 object-cover opacity-50"
-          />
-        )}
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
-        <div className="relative z-40 p-8">
-          <Image src={card.src} alt={card.title} width={80} height={80} className="mb-2" />
-          <motion.p
-            className="text-left font-sans text-sm font-medium text-white md:text-base"
-          >
-            {card.category}
-          </motion.p>
-          <motion.p
-            className="mt-2 max-w-xs text-left font-sans text-xl font-semibold [text-wrap:balance] text-white md:text-3xl"
-          >
-            {card.title}
-          </motion.p>
-        </div>
-      </motion.button>
-    </>
+    </CarouselContext.Provider>
+  );
+};
+
+export const Card = ({
+  card,
+  index,
+  layout = false,
+}: {
+  card: Card;
+  index: number;
+  layout?: boolean;
+}) => {
+  const { setCurrentIndex, setOpen, setSelectedCard } = useContext(CarouselContext);
+
+  const handleOpen = () => {
+    setOpen(true);
+    setSelectedCard(card);
+    setCurrentIndex(index);
+  };
+
+  return (
+    <motion.button
+      layoutId={layout ? `card-${card.title}` : undefined}
+      onClick={handleOpen}
+      className="relative z-10 flex h-60 w-56 flex-col items-start justify-start overflow-hidden rounded-3xl bg-blue-500/20 md:h-[30rem] md:w-96"
+    >
+      {card.backgroundImage && (
+        <Image 
+          src={typeof card.backgroundImage === 'string' ? card.backgroundImage : card.backgroundImage.src}
+          alt={card.title}
+          fill
+          className="absolute inset-0 object-cover opacity-50"
+        />
+      )}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
+      <div className="relative z-40 p-8">
+        <Image src={card.src} alt={card.title} width={80} height={80} className="mb-2" />
+        <motion.p
+          className="text-left font-sans text-sm font-medium text-white md:text-base"
+        >
+          {card.category}
+        </motion.p>
+        <motion.p
+          className="mt-2 max-w-xs text-left font-sans text-xl font-semibold [text-wrap:balance] text-white md:text-3xl"
+        >
+          {card.title}
+        </motion.p>
+      </div>
+    </motion.button>
   );
 };
 

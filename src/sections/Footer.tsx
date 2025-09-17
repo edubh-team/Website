@@ -48,7 +48,7 @@ export const Footer = () => {
             &copy; {new Date().getFullYear()} EduBh. Bridging Academia and Industry. All rights reserved.
           </p>
           <p className="text-xs opacity-75">
-            Partner Universities: Amity Online {/* | Manipal Online */}
+            Partner Universities: Amity Online
           </p>
         </div>
       </div>

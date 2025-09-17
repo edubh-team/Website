@@ -1,19 +1,17 @@
 "use client";
 
 import amityLogo from "@/assets/amity.png";
+import manipalLogo from "@/assets/manipal.png";
 // import bitsLogo from "@/assets/bits.png";
-// import manipalLogo from "@/assets/manipal.png";
 // import iitPatnaLogo from "@/assets/Indian_Institute_of_Technology,_Patna.png";
 import { ScrollTextReveal } from "@/components/ui/scroll-text-reveal";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
 const allLogos = [
-  amityLogo,
-  // manipalLogo,
   // bitsLogo,
   // iitPatnaLogo,
-  amityLogo,amityLogo,amityLogo,amityLogo,amityLogo,amityLogo,amityLogo,
+  amityLogo,manipalLogo,amityLogo,manipalLogo,amityLogo,manipalLogo,amityLogo,
 ];
 
 export const LogoTicker = () => {
