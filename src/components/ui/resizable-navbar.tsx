@@ -31,6 +31,7 @@ interface NavItemsProps {
   items: {
     name: string;
     link: string;
+    dropdown?: { name: string; link: string }[];
   }[];
   className?: string;
   onItemClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
@@ -51,6 +52,7 @@ interface MobileNavHeaderProps {
 interface MobileNavMenuProps {
   children: React.ReactNode;
   className?: string;
+  dropdown?: { name: string; link: string }[];
   isOpen: boolean;
   onClose: () => void;
 }
@@ -125,7 +127,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
  
 export const NavItems = ({ items, className, onItemClick, visible }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
- 
+
   return (
     <motion.div
       onMouseLeave={() => setHovered(null)}
@@ -135,31 +137,90 @@ export const NavItems = ({ items, className, onItemClick, visible }: NavItemsPro
       )}
     >
       {items.map((item, idx) => (
-        <a
+        <div
+          key={`nav-item-${idx}`}
+          className="relative"
           onMouseEnter={() => setHovered(idx)}
-          onClick={onItemClick}
-          className={cn(
-            "relative px-4 py-2 transition-colors duration-200",
-            visible 
-              ? "text-slate-600 hover:text-slate-800" 
-              : "text-slate-700 hover:text-slate-900 dark:text-neutral-300 dark:hover:text-neutral-100"
-          )}
-          key={`link-${idx}`}
-          href={item.link}
+          onMouseLeave={() => setHovered(null)}
         >
-          {hovered === idx && (
-            <motion.div
-              layoutId="hovered"
+          {item.dropdown ? (
+            <span
               className={cn(
-                "absolute inset-0 h-full w-full rounded-full",
+                "relative px-4 py-2 transition-colors duration-200 cursor-pointer",
                 visible 
-                  ? "bg-white/60 border border-white/40" 
-                  : "bg-white/70 border border-white/50 dark:bg-neutral-800"
+                  ? "text-slate-600 hover:text-slate-800" 
+                  : "text-slate-700 hover:text-slate-900 dark:text-neutral-300 dark:hover:text-neutral-100"
               )}
-            />
+            >
+              {hovered === idx && (
+                <motion.div
+                  layoutId="hovered"
+                  className={cn(
+                    "absolute inset-0 h-full w-full rounded-full",
+                    visible 
+                      ? "bg-white/60 border border-white/40" 
+                      : "bg-white/70 border border-white/50 dark:bg-neutral-800"
+                  )}
+                />
+              )}
+              <span className="relative z-20">{item.name}</span>
+            </span>
+          ) : (
+            <Link
+              onClick={onItemClick}
+              className={cn(
+                "relative px-4 py-2 transition-colors duration-200",
+                visible 
+                  ? "text-slate-600 hover:text-slate-800" 
+                  : "text-slate-700 hover:text-slate-900 dark:text-neutral-300 dark:hover:text-neutral-100"
+              )}
+              href={item.link}
+            >
+              {hovered === idx && (
+                <motion.div
+                  layoutId="hovered"
+                  className={cn(
+                    "absolute inset-0 h-full w-full rounded-full",
+                    visible 
+                      ? "bg-white/60 border border-white/40" 
+                      : "bg-white/70 border border-white/50 dark:bg-neutral-800"
+                  )}
+                />
+              )}
+              <span className="relative z-20">{item.name}</span>
+            </Link>
           )}
-          <span className="relative z-20">{item.name}</span>
-        </a>
+
+          {item.dropdown && ( // Render dropdown only if it exists
+            <AnimatePresence>
+              {hovered === idx && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.2 }}
+                  className={cn(
+                    "absolute top-full left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none dark:bg-neutral-800",
+                    visible ? "border border-white/40" : "border border-white/50 dark:border-neutral-700"
+                  )}
+                >
+                  <div className="py-1">
+                    {item.dropdown.map((dropdownItem, dropdownIdx) => (
+                      <Link
+                        key={`dropdown-link-${dropdownIdx}`}
+                        href={dropdownItem.link}
+                        onClick={onItemClick}
+                        className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-700"
+                      >
+                        {dropdownItem.name}
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          )}
+        </div>
       ))}
     </motion.div>
   );
@@ -218,7 +279,10 @@ export const MobileNavMenu = ({
   className,
   isOpen,
   onClose,
+  dropdown,
 }: MobileNavMenuProps) => {
+  const [isMobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -235,7 +299,43 @@ export const MobileNavMenu = ({
           {/* Move MobileNavHeader here for solid background */}
 
           <div className="w-full px-4 pb-8 flex flex-col gap-4">
-            {children}
+            {React.Children.map(children, (child) => {
+              if (React.isValidElement(child) && child.props.item?.name === "Courses") {
+                return (
+                  <div key="mobile-courses-dropdown" className="relative w-full">
+                    <button
+                      onClick={() => setMobileDropdownOpen((prev) => !prev)}
+                      className="block w-full px-4 py-3 rounded-lg text-base font-medium text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800 transition-colors text-left"
+                    >
+                      Courses
+                    </button>
+                    <AnimatePresence>
+                      {isMobileDropdownOpen && dropdown && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="overflow-hidden mt-2 ml-4 border-l border-neutral-200 dark:border-neutral-700"
+                        >
+                          {dropdown.map((dropdownItem, dropdownIdx) => (
+                            <Link
+                              key={`mobile-dropdown-link-${dropdownIdx}`}
+                              href={dropdownItem.link}
+                              onClick={onClose}
+                              className="block px-4 py-2 text-sm text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-700"
+                            >
+                              {dropdownItem.name}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+              return child;
+            })}
           </div>
         </motion.div>
       )}

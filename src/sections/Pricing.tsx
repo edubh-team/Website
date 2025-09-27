@@ -37,7 +37,7 @@ const data = [
     title: "Amity University",
     src: Amity,
     content: <DummyContent description="A multi-campus private university offering a wide range of undergraduate and postgraduate courses in diverse fields like engineering, management, law, and mass communication." duration="Various" mode="On-Campus/Online" />,
-    website: "https://www.amity.edu/",
+    website: "/courses",
     backgroundImage: AmityBackground,
   },
   {
@@ -45,7 +45,7 @@ const data = [
     title: "Manipal Online",
     src: Manipal,
     content: <DummyContent description="Manipal University Online offers UGC-entitled online degree programs designed for working professionals and students seeking flexible, high-quality education from a recognized institution." duration="Various" mode="Online" />,
-    website: "https://www.onlinemanipal.com",
+    website: "/manipal-courses",
     backgroundImage: ManipalBackground,
   },
   {
@@ -53,7 +53,7 @@ const data = [
     title: "Amity University",
     src: Amity,
     content: <DummyContent description="A multi-campus private university offering a wide range of undergraduate and postgraduate courses in diverse fields like engineering, management, law, and mass communication." duration="Various" mode="On-Campus/Online" />,
-    website: "https://www.amity.edu/",
+    website: "/courses",
     backgroundImage: AmityBackground,
   },
   {
@@ -61,7 +61,7 @@ const data = [
     title: "Manipal Online",
     src: Manipal,
     content: <DummyContent description="Manipal University Online offers UGC-entitled online degree programs designed for working professionals and students seeking flexible, high-quality education from a recognized institution." duration="Various" mode="Online" />,
-    website: "https://www.onlinemanipal.com",
+    website: "/manipal-courses",
     backgroundImage: ManipalBackground,
   },
 ];

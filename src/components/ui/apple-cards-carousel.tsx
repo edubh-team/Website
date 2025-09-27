@@ -152,9 +152,7 @@ export const Carousel = ({ items }: CarouselProps) => {
               <div className="flex justify-start items-center gap-4 mt-4">
                 {selectedCard.website && (
                   <a
-                    href="/courses"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={selectedCard.website}
                     className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200 shadow-sm"
                   >
                     Explore Courses
