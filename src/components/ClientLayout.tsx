@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { Header } from "@/sections/Header";
 import { Footer } from "@/sections/Footer";
+import { FloatingDownloadButton } from "@/components/ui/FloatingDownloadButton";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   // const [uiHover, setUiHover] = useState(false);
@@ -26,6 +27,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         {children}
       </main>
       <Footer />
+      <FloatingDownloadButton />
     </div>
   );
 } 
