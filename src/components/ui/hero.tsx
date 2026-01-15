@@ -68,7 +68,25 @@ export function Hero() {
             style={{ boxShadow: "0 40px 120px rgba(15,23,42,0.1)" }}
             animate={{ y: [0, -10, 0], rotate: [0, 8, 0] }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          />
+          >
+            <div className="flex h-full w-full flex-col items-center justify-center gap-2 p-4">
+              <img
+                src="/manipal.png"
+                alt="Manipal"
+                className="h-6 w-auto object-contain opacity-90 grayscale transition-all hover:grayscale-0 hover:opacity-100"
+              />
+              <img
+                src="/jain.png"
+                alt="Jain"
+                className="h-6 w-auto object-contain opacity-90 grayscale transition-all hover:grayscale-0 hover:opacity-100"
+              />
+              <img
+                src="/sharda.png"
+                alt="Sharda"
+                className="h-6 w-auto object-contain opacity-90 grayscale transition-all hover:grayscale-0 hover:opacity-100"
+              />
+            </div>
+          </motion.div>
           <motion.div
             className="absolute right-[-3rem] top-16 h-52 w-52 rounded-[32px] border border-gray-200 bg-white/90"
             animate={{ y: [0, 10, 0], rotate: [0, -6, 0] }}

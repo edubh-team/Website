@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const companies = [
   { name: "Google", logo: "/placement/Google-logo.png" },
-  { name: "Microsoft", logo: "/placement/microsoft-logo.png" },
+  { name: "Microsoft", logo: "/placement/microsoft-logo-microsoft-icon-transparent-free-png.png" },
   { name: "Amazon", logo: "/placement/amazon-logo.png" },
   { name: "Deloitte", logo: "/placement/Deloitte-logo.png" },
   { name: "KPMG", logo: "/placement/kpmg-logo.png" },
@@ -45,7 +45,7 @@ export function PlacementPartners() {
                 alt={company.name}
                 className={`${
                   company.name === "Microsoft" || company.name === "KPMG"
-                    ? "h-14"
+                    ? "h-20"
                     : "h-10"
                 } w-auto grayscale opacity-40 transition-all group-hover:grayscale-0 group-hover:opacity-100`}
                 loading="lazy"
