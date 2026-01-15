@@ -3,12 +3,17 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { courses } from "@/data/courses";
 
+type CoursePageProps = {
+  params: Promise<unknown>;
+};
+
 export function generateStaticParams() {
   return courses.map((course) => ({ id: course.id }));
 }
- 
-export function generateMetadata({ params }: any): Metadata {
-  const course = courses.find((c) => c.id === params.id);
+
+export function generateMetadata({ params }: CoursePageProps): Metadata {
+  const { id } = params as unknown as { id: string };
+  const course = courses.find((c) => c.id === id);
   if (!course) {
     return {
       title: "Course not found – EduBh",
@@ -21,8 +26,9 @@ export function generateMetadata({ params }: any): Metadata {
   };
 }
 
-export default function CourseDetail({ params }: any) {
-  const course = courses.find((c) => c.id === params.id);
+export default function CourseDetail({ params }: CoursePageProps) {
+  const { id } = params as unknown as { id: string };
+  const course = courses.find((c) => c.id === id);
 
   if (!course) {
     notFound();
