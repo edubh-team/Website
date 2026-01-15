@@ -2,31 +2,38 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    "./src/sections/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    screens: {
-      sm: "375px",
-      md: "768px",
-      lg: "1200px",
-    },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        inter: ['Inter', 'sans-serif'],
+        sans: [
+          "var(--font-inter)",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "\"SF Pro Text\"",
+          "\"SF Pro Display\"",
+          "sans-serif",
+        ],
       },
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: "20px",
-          lg: "80px",
+      colors: {
+        background: "#F5F5F7",
+        surface: "#FFFFFF",
+        primary: "#0071E3",
+        "text-primary": "#1D1D1F",
+        "text-secondary": "#86868B",
+      },
+      keyframes: {
+        "fade-in-up": {
+          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      animation: {
+        "fade-in-up":
+          "fade-in-up 0.4s cubic-bezier(0.25,0.1,0.25,1) forwards",
       },
     },
   },
@@ -34,3 +41,4 @@ const config: Config = {
 };
 
 export default config;
+

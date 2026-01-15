@@ -1,23 +1,21 @@
-"use client";
-import { CallToAction } from "@/sections/CallToAction";
-import { Hero } from "@/sections/Hero";
-import { LogoTicker } from "@/sections/LogoTicker";
-import { Pricing } from "@/sections/Pricing";
-import { ProductShowcase } from "@/sections/ProductShowcase";
-import Testimonials from "@/sections/Testimonials";
-// import { useState } from "react";
+import { Hero } from "@/components/ui/hero";
+import { LogoTicker } from "@/components/ui/logo-ticker";
+import { CourseShowcase } from "@/components/ui/course-showcase";
+import { TestimonialsColumn } from "@/components/ui/testimonials";
+import { CTABanner } from "@/components/ui/cta-banner";
+import { PlacementPartners } from "@/sections/PlacementPartners";
 
 export default function Home() {
-  // const [uiHover, setUiHover] = useState(false);
-  
   return (
-    <>
+    <div className="space-y-8">
       <Hero />
       <LogoTicker />
-      <ProductShowcase />
-      <Pricing />
-      <Testimonials />
-      <CallToAction />
-    </>
+      <PlacementPartners />
+      <div className="grid gap-6 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
+        <CourseShowcase />
+        <TestimonialsColumn />
+      </div>
+      <CTABanner />
+    </div>
   );
 }
