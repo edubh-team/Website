@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { courses } from "@/data/courses";
@@ -25,7 +25,7 @@ const universityOptions: { key: UniversityFilter; label: string }[] = [
   { key: "sharda", label: "Sharda University Online" },
 ];
 
-export default function CoursesPage() {
+function CoursesPageContent() {
   const searchParams = useSearchParams();
 
   const [level, setLevel] = useState<LevelFilter>(() => {
@@ -158,5 +158,20 @@ export default function CoursesPage() {
 
       <CourseDetailsModal course={selected} onClose={() => setSelected(null)} />
     </div>
+  );
+}
+
+export default function CoursesPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="space-y-4">
+          <div className="h-6 w-40 rounded-full bg-slate-100" />
+          <div className="h-24 rounded-3xl bg-slate-100" />
+        </div>
+      }
+    >
+      <CoursesPageContent />
+    </Suspense>
   );
 }

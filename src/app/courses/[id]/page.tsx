@@ -3,17 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { courses } from "@/data/courses";
 
-type Params = {
-  params: {
-    id: string;
-  };
-};
-
 export function generateStaticParams() {
   return courses.map((course) => ({ id: course.id }));
 }
-
-export function generateMetadata({ params }: Params): Metadata {
+ 
+export function generateMetadata({ params }: any): Metadata {
   const course = courses.find((c) => c.id === params.id);
   if (!course) {
     return {
@@ -27,7 +21,7 @@ export function generateMetadata({ params }: Params): Metadata {
   };
 }
 
-export default function CourseDetail({ params }: Params) {
+export default function CourseDetail({ params }: any) {
   const course = courses.find((c) => c.id === params.id);
 
   if (!course) {
