@@ -12,6 +12,26 @@ export type Course = {
 };
 
 export const courses: Course[] = [
+  // --- Amity University ---
+  {
+    id: "mba-amity",
+    title: "MBA - Amity University",
+    university: "Amity University",
+    category: "Postgraduate",
+    description:
+      "A two-year MBA program focused on building advanced management, leadership, and business strategy skills for modern career growth.",
+    duration: "2 Years • Full-time • Hybrid",
+  },
+  {
+    id: "integrated-mba-amity",
+    title: "Integrated BBA+MBA - Amity University",
+    university: "Amity University",
+    category: "Integrated",
+    description:
+      "An integrated management pathway that combines undergraduate business fundamentals with postgraduate leadership and strategy training in one continuous program.",
+    duration: "5 Years • Full-time • Hybrid",
+  },
+
   // --- Jain University ---
   {
     id: "mba-jain",

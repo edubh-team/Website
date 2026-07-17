@@ -1,0 +1,9 @@
+1:"$Sreact.fragment"
+2:I[1113,[],"ClientPageRoot"]
+3:I[9969,["948","static/chunks/948-3d4ed0a2850a4bc4.js","549","static/chunks/549-84957a79e95f3cdf.js","113","static/chunks/113-04671eab4593169f.js","450","static/chunks/app/manipal-courses/page-12090b412ca286a7.js"],"default"]
+6:I[8937,[],"OutletBoundary"]
+7:"$Sreact.suspense"
+0:{"buildId":"L2UHPdWApcPhybFZrbQQL","rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],null,["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"loading":null,"isPartial":false}
+4:{}
+5:{}
+8:null

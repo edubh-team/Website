@@ -4,131 +4,134 @@ import { notFound } from "next/navigation";
 import { courses } from "@/data/courses";
 
 type CoursePageProps = {
-  params: Promise<unknown>;
+  params: Promise<{ id: string }>;
 };
 
 export function generateStaticParams() {
   return courses.map((course) => ({ id: course.id }));
 }
 
-export function generateMetadata({ params }: CoursePageProps): Metadata {
-  const { id } = params as unknown as { id: string };
-  const course = courses.find((c) => c.id === id);
+export async function generateMetadata({
+  params,
+}: CoursePageProps): Promise<Metadata> {
+  const { id } = await params;
+  const course = courses.find((entry) => entry.id === id);
   if (!course) {
     return {
-      title: "Course not found – EduBh",
+      title: "Course not found - EduBh",
     };
   }
 
   return {
-    title: `${course.title} at ${course.university} – EduBh`,
+    title: `${course.title} at ${course.university} - EduBh`,
     description: course.description,
   };
 }
 
-export default function CourseDetail({ params }: CoursePageProps) {
-  const { id } = params as unknown as { id: string };
-  const course = courses.find((c) => c.id === id);
+export default async function CourseDetail({ params }: CoursePageProps) {
+  const { id } = await params;
+  const course = courses.find((entry) => entry.id === id);
 
   if (!course) {
     notFound();
   }
 
   return (
-    <div className="space-y-8">
-      <div className="sticky top-[56px] z-10 mb-4 flex items-center justify-between gap-4 border-b border-gray-200 bg-white/90 py-3 backdrop-blur-md md:top-[64px]">
-        <div>
-          <p className="text-xs uppercase tracking-[0.16em] text-[#86868B]">
-            {course.university}
-          </p>
-          <h1 className="text-lg font-semibold text-[#1D1D1F] md:text-xl">
-            {course.title}
-          </h1>
-        </div>
-        <Link href="/apply">
-          <button className="rounded-full bg-[#1f3c88] px-5 py-2 text-xs font-medium text-white shadow-[0_8px_30px_rgba(0,0,0,0.18)]">
-            Apply Now
-          </button>
-        </Link>
-      </div>
-      <div className="grid gap-6 md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
-        <section className="space-y-4 rounded-3xl bg-white p-6 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#86868B]">
-            Program overview
-          </h2>
-          <p className="text-sm leading-relaxed text-[#1D1D1F]">
-            {course.description}
-          </p>
-          <div className="grid gap-3 text-xs text-[#86868B] sm:grid-cols-2">
-            <div className="rounded-2xl bg-slate-100 px-3 py-3">
-              <p className="text-[11px] uppercase tracking-[0.16em] text-[#86868B]">
-                Duration
-              </p>
-              <p className="mt-1 font-medium text-[#1D1D1F]">
-                {course.duration}
-              </p>
+    <div className="space-y-6">
+      <section className="surface-card-strong px-6 py-8 sm:px-8 sm:py-10">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="space-y-4">
+            <div className="eyebrow">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+              <span>{course.university}</span>
             </div>
-            <div className="rounded-2xl bg-slate-100 px-3 py-3">
-              <p className="text-[11px] uppercase tracking-[0.16em] text-[#86868B]">
-                Category
-              </p>
-              <p className="mt-1 font-medium text-[#1D1D1F]">
-                {course.category}
-              </p>
-            </div>
-          </div>
-          <div className="mt-2 rounded-2xl bg-slate-50 px-4 py-4 text-xs text-[#86868B]">
-            <p className="mb-1 font-medium text-[#1D1D1F]">Eligibility</p>
-            <p>
-              Undergraduate programs typically require 10+2 with a strong
-              academic profile. Postgraduate programs require a relevant
-              undergraduate degree. Final eligibility is confirmed by the
-              university admissions team.
+            <h1 className="section-title max-w-4xl text-balance">{course.title}</h1>
+            <p className="max-w-3xl text-base leading-8 text-[var(--muted)]">
+              {course.description}
             </p>
           </div>
+          <Link href="/apply" className="button-primary w-fit text-sm sm:text-base">
+            Apply Now
+          </Link>
+        </div>
+      </section>
+
+      <div className="grid gap-6 xl:grid-cols-[minmax(0,1.5fr)_minmax(0,0.85fr)]">
+        <section className="surface-card px-6 py-6 sm:px-7">
+          <h2 className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
+            Program overview
+          </h2>
+          <div className="mt-5 space-y-5">
+            <p className="text-base leading-8 text-[var(--foreground)]">
+              {course.description}
+            </p>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-[1.5rem] bg-[linear-gradient(180deg,rgba(22,93,245,0.08),rgba(255,255,255,0.92))] p-4">
+                <p className="text-[0.72rem] uppercase tracking-[0.2em] text-[var(--muted)]">
+                  Duration
+                </p>
+                <p className="mt-2 text-lg font-semibold text-[var(--foreground)]">
+                  {course.duration}
+                </p>
+              </div>
+              <div className="rounded-[1.5rem] bg-[linear-gradient(180deg,rgba(31,199,182,0.08),rgba(255,255,255,0.92))] p-4">
+                <p className="text-[0.72rem] uppercase tracking-[0.2em] text-[var(--muted)]">
+                  Category
+                </p>
+                <p className="mt-2 text-lg font-semibold text-[var(--foreground)]">
+                  {course.category}
+                </p>
+              </div>
+            </div>
+            <div className="rounded-[1.55rem] border border-white/70 bg-white/88 px-5 py-5 shadow-[0_16px_32px_rgba(16,32,58,0.06)]">
+              <p className="mb-2 text-base font-semibold text-[var(--foreground)]">
+                Eligibility
+              </p>
+              <p className="text-sm leading-7 text-[var(--muted)]">
+                Undergraduate programs typically require 10+2 with a strong
+                academic profile. Postgraduate programs require a relevant
+                undergraduate degree. Final eligibility is confirmed by the
+                university admissions team.
+              </p>
+            </div>
+          </div>
         </section>
+
         <aside className="space-y-4">
-          <div className="glass-panel bg-white/90 p-5 shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
-            <h2 className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-[#86868B]">
+          <div className="surface-card-dark p-6">
+            <h2 className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[#93a8cc]">
               Program snapshot
             </h2>
-            <dl className="space-y-3 text-xs text-[#86868B]">
-              <div className="flex justify-between gap-4">
+            <dl className="mt-5 space-y-4 text-sm text-[#c6d2e8]">
+              <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
                 <dt>University</dt>
-                <dd className="font-medium text-[#1D1D1F]">
-                  {course.university}
-                </dd>
+                <dd className="text-right font-semibold text-white">{course.university}</dd>
               </div>
-              <div className="flex justify-between gap-4">
+              <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
                 <dt>Category</dt>
-                <dd className="font-medium text-[#1D1D1F]">
-                  {course.category}
-                </dd>
+                <dd className="text-right font-semibold text-white">{course.category}</dd>
               </div>
-              <div className="flex justify-between gap-4">
+              <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
                 <dt>Duration</dt>
-                <dd className="font-medium text-[#1D1D1F]">
-                  {course.duration}
-                </dd>
+                <dd className="text-right font-semibold text-white">{course.duration}</dd>
               </div>
-              <div className="flex justify-between gap-4">
+              <div className="flex items-start justify-between gap-4">
                 <dt>Fees</dt>
-                <dd className="font-medium text-[#1D1D1F]">
+                <dd className="text-right font-semibold text-white">
                   Shared during counselling
                 </dd>
               </div>
             </dl>
-            <Link href="/apply" className="mt-4 inline-flex w-full">
-              <button className="inline-flex w-full items-center justify-center rounded-full bg-[#1f3c88] px-5 py-2.5 text-xs font-medium text-white shadow-[0_8px_30px_rgba(0,0,0,0.18)]">
-                Start application
-              </button>
+            <Link href="/apply" className="mt-6 button-primary w-full text-sm">
+              Start application
             </Link>
           </div>
-          <div className="rounded-3xl border border-gray-200 bg-white/90 p-4 text-xs text-[#86868B] backdrop-blur-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)]">
-            <p className="mb-1 font-medium text-[#1D1D1F]">
+
+          <div className="surface-card px-5 py-5">
+            <p className="mb-2 text-base font-semibold text-[var(--foreground)]">
               How EduBh supports you
             </p>
-            <ul className="space-y-1.5">
+            <ul className="space-y-2 text-sm leading-7 text-[var(--muted)]">
               <li>Profile evaluation and course fitment</li>
               <li>Application review and essay guidance</li>
               <li>Scholarship and financial planning support</li>

@@ -11,8 +11,10 @@ export interface ApplicationData {
   fullName: string;
   email: string;
   phone: string;
+  state: string;
   program: string;
   qualification?: string;
+  leadSource?: string;
   timestamp: number;
   status: 'pending' | 'approved' | 'rejected';
 }

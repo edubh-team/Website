@@ -22,67 +22,80 @@ export function CourseCategorySection({ title, courses, onSelect }: Props) {
   }
 
   return (
-    <section className="space-y-3">
-      <div className="flex items-center justify-between">
-        <h2 className="text-sm font-semibold tracking-tight text-[#1D1D1F]">
-          {title}
-        </h2>
-        <p className="text-[11px] uppercase tracking-[0.18em] text-[#86868B]">
-          {courses.length} program{courses.length > 1 ? "s" : ""}
-        </p>
+    <section className="space-y-4">
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h2 className="text-2xl font-semibold tracking-tight text-[var(--foreground)]">
+            {title}
+          </h2>
+          <p className="mt-1 text-sm text-[var(--muted)]">
+            {courses.length} program{courses.length > 1 ? "s" : ""}
+          </p>
+        </div>
       </div>
+
       <AnimatePresence initial={false}>
         <motion.div
-          key={courses.map((c) => c.id).join("-")}
+          key={courses.map((course) => course.id).join("-")}
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.18 }}
-          className="grid gap-4 md:grid-cols-2"
+          className="grid gap-4 lg:grid-cols-2"
         >
           {courses.map((course) => (
             <motion.article
               key={course.id}
               layout
-              whileHover={{ y: -4 }}
-              className="group relative overflow-hidden rounded-3xl bg-white p-5 shadow-[0_2px_8px_rgba(0,0,0,0.04)] transition-all hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]"
+              whileHover={{ y: -5 }}
+              className="group relative overflow-hidden rounded-[1.8rem] border border-white/70 bg-white/94 p-5 shadow-[0_18px_34px_rgba(16,32,58,0.08)]"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-              <div className="relative flex items-start justify-between gap-3 text-xs">
-                <div>
-                  <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#86868B]">
-                    {course.university}
-                  </p>
-                  <h3 className="mt-2 text-sm font-semibold text-[#1D1D1F]">
-                    {course.title}
-                  </h3>
-                  <p className="mt-2 line-clamp-2 text-[11px] text-[#86868B]">
-                    {course.description}
-                  </p>
-                  <p className="mt-2 text-[11px] text-[#86868B]">
-                    {course.duration}
-                  </p>
+              <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(22,93,245,0.1),transparent_55%,rgba(31,199,182,0.12))] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="relative flex h-full flex-col justify-between gap-5">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="space-y-3">
+                    <div className="inline-flex rounded-full border border-[rgba(109,132,170,0.16)] bg-[rgba(22,93,245,0.08)] px-3 py-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+                      {course.university}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold tracking-tight text-[var(--foreground)]">
+                        {course.title}
+                      </h3>
+                      <p className="mt-3 line-clamp-3 text-sm leading-7 text-[var(--muted)]">
+                        {course.description}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[1.35rem] bg-[linear-gradient(135deg,rgba(22,93,245,0.12),rgba(31,199,182,0.14))]">
+                    {universityLogos[course.university] && (
+                      <Image
+                        src={universityLogos[course.university]}
+                        alt={course.university}
+                        width={28}
+                        height={28}
+                        className="h-7 w-7 object-contain"
+                      />
+                    )}
+                  </div>
                 </div>
-                <div className="mt-1 h-9 w-9 shrink-0 flex items-center justify-center rounded-2xl bg-gradient-to-br from-slate-100 to-white shadow-[0_4px_18px_rgba(0,0,0,0.08)]">
-                  {universityLogos[course.university] && (
-                    <Image
-                      src={universityLogos[course.university]}
-                      alt={course.university}
-                      width={24}
-                      height={24}
-                      className="h-6 w-6 object-contain"
-                    />
-                  )}
+
+                <div className="relative flex flex-wrap items-center justify-between gap-3 text-sm">
+                  <div className="flex flex-wrap gap-2">
+                    <span className="rounded-full bg-[#eef3fa] px-3 py-1.5 text-[var(--foreground)]">
+                      {course.category}
+                    </span>
+                    <span className="rounded-full bg-[#f6f8fc] px-3 py-1.5 text-[var(--muted)]">
+                      {course.duration}
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => onSelect?.(course)}
+                    className="button-ghost text-sm"
+                  >
+                    View details
+                  </button>
                 </div>
-              </div>
-              <div className="relative mt-4 flex items-center justify-between text-[11px]">
-                <button
-                  type="button"
-                  onClick={() => onSelect?.(course)}
-                  className="inline-flex items-center gap-1 text-[#1f3c88] underline-offset-4 hover:underline"
-                >
-                  View details
-                </button>
               </div>
             </motion.article>
           ))}

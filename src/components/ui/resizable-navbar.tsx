@@ -6,7 +6,7 @@ import {
   AnimatePresence,
   useScroll,
   useMotionValueEvent,
-} from "motion/react";
+} from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import mainLogo from "@/assets/mainlogo.png";
@@ -300,7 +300,11 @@ export const MobileNavMenu = ({
 
           <div className="w-full px-4 pb-8 flex flex-col gap-4">
             {React.Children.map(children, (child) => {
-              if (React.isValidElement(child) && child.props.item?.name === "Courses") {
+              const childElement = React.isValidElement(child)
+                ? (child as React.ReactElement<{ item?: { name?: string } }>)
+                : null;
+
+              if (childElement?.props.item?.name === "Courses") {
                 return (
                   <div key="mobile-courses-dropdown" className="relative w-full">
                     <button

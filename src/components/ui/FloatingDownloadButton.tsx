@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { IconDownload } from "@tabler/icons-react";
 

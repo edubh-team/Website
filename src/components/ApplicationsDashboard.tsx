@@ -8,8 +8,10 @@ interface ApplicationData {
   fullName: string;
   email: string;
   phone: string;
+  state: string;
   program: string;
   qualification?: string;
+  leadSource?: string;
   timestamp: number;
   status: 'pending' | 'approved' | 'rejected';
 }
@@ -163,12 +165,22 @@ export default function ApplicationsDashboard() {
                           {application.qualification}
                         </div>
                       )}
+                      <div className="text-sm text-gray-500">
+                        {application.state}
+                      </div>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                      {application.program}
-                    </span>
+                    <div className="space-y-2">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                        {application.program}
+                      </span>
+                      {application.leadSource && (
+                        <div className="text-xs text-gray-500">
+                          Source: {application.leadSource}
+                        </div>
+                      )}
+                    </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">{application.email}</div>

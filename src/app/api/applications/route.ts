@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     
     // Validate required fields
-    const requiredFields = ['fullName', 'email', 'phone', 'program'];
+    const requiredFields = ['fullName', 'email', 'phone', 'state', 'program'];
     const missingFields = requiredFields.filter(field => !body[field]);
     
     if (missingFields.length > 0) {

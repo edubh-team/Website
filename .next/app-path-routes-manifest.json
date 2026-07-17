@@ -1,0 +1,14 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/_global-error/page": "/_global-error",
+  "/api/applications/[id]/route": "/api/applications/[id]",
+  "/favicon.ico/route": "/favicon.ico",
+  "/api/applications/route": "/api/applications",
+  "/admin/page": "/admin",
+  "/apply/page": "/apply",
+  "/page": "/",
+  "/contact/page": "/contact",
+  "/manipal-courses/page": "/manipal-courses",
+  "/courses/page": "/courses",
+  "/courses/[id]/page": "/courses/[id]"
+}

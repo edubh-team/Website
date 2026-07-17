@@ -112,6 +112,8 @@ export default function ContactHero() {
                 <h3 className="text-lg font-semibold text-[#010D3E] mb-2">Office</h3>
                 <p className="text-gray-600 text-sm mb-3">Visit our main office</p>
                 <p className="text-[#1A3EC3] font-semibold">7th Floor, Yamuna Apartment</p>
+                <p className="text-[#1A3EC3] font-semibold">1st Floor, Bajarangi chowk</p>
+
                 <p className="text-gray-500 text-sm mt-1">86, Golaghata Road, Kolkata-48</p>
               </motion.div>
 

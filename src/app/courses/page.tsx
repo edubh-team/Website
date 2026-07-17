@@ -43,19 +43,19 @@ function CoursesPageContent() {
         level === "all"
           ? true
           : level === "ug"
-          ? course.category === "Undergraduate"
-          : level === "pg"
-          ? course.category === "Postgraduate"
-          : course.category === "Integrated";
+            ? course.category === "Undergraduate"
+            : level === "pg"
+              ? course.category === "Postgraduate"
+              : course.category === "Integrated";
 
       const matchesUniversity =
         university === "all"
           ? true
           : university === "manipal"
-          ? course.university === "Manipal University"
-          : university === "jain"
-          ? course.university === "Jain University"
-          : course.university === "Sharda University Online";
+            ? course.university === "Manipal University"
+            : university === "jain"
+              ? course.university === "Jain University"
+              : course.university === "Sharda University Online";
 
       return matchesLevel && matchesUniversity;
     });
@@ -63,72 +63,98 @@ function CoursesPageContent() {
 
   const grouped = useMemo(() => {
     return {
-      ug: filtered.filter((c) => c.category === "Undergraduate"),
-      pg: filtered.filter((c) => c.category === "Postgraduate"),
-      integrated: filtered.filter((c) => c.category === "Integrated"),
+      ug: filtered.filter((course) => course.category === "Undergraduate"),
+      pg: filtered.filter((course) => course.category === "Postgraduate"),
+      integrated: filtered.filter((course) => course.category === "Integrated"),
     };
   }, [filtered]);
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <motion.section
         initial={{ y: 24, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: "spring", stiffness: 120, damping: 18 }}
-        className="space-y-3"
+        className="surface-card-strong overflow-hidden px-6 py-8 sm:px-8 sm:py-10"
       >
-        <h1 className="text-2xl font-semibold tracking-tight text-[#1D1D1F]">
-          Explore programs
-        </h1>
-        <p className="max-w-2xl text-sm text-[#86868B]">
-          Curated undergraduate, postgraduate, and integrated programs from
-          Manipal University, Jain University, and Sharda University Online.
-        </p>
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-end">
+          <div className="space-y-4">
+            <div className="eyebrow">
+              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+              <span>Programs</span>
+            </div>
+            <h1 className="section-title text-balance">Explore programs</h1>
+            <p className="max-w-3xl text-base leading-8 text-[var(--muted)]">
+              Curated undergraduate, postgraduate, and integrated programs from
+              Manipal University, Jain University, and Sharda University Online.
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            <div className="trust-pill">
+              <strong>3</strong>
+              <span>University partners</span>
+            </div>
+            <div className="trust-pill">
+              <strong>{filtered.length}</strong>
+              <span>Programs matched</span>
+            </div>
+            <div className="trust-pill">
+              <strong>1</strong>
+              <span>Unified application</span>
+            </div>
+          </div>
+        </div>
       </motion.section>
 
       <motion.section
         initial={{ y: 28, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.06, type: "spring", stiffness: 120, damping: 18 }}
-        className="flex flex-wrap gap-4 rounded-3xl bg-white p-4 shadow-[0_2px_8px_rgba(0,0,0,0.04)]"
+        className="surface-card px-5 py-5 sm:px-6"
       >
-        <div className="flex flex-wrap items-center gap-2 text-xs">
-          <span className="mr-1 text-[11px] font-medium uppercase tracking-[0.18em] text-[#86868B]">
-            Level
-          </span>
-          {levelOptions.map((option) => (
-            <button
-              key={option.key}
-              type="button"
-              onClick={() => setLevel(option.key)}
-              className={`inline-flex items-center rounded-full px-3 py-1 ${
-                level === option.key
-                  ? "bg-[#1f3c88] text-white"
-                  : "bg-slate-100 text-[#1D1D1F] hover:bg-slate-200"
-              }`}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
-        <div className="flex flex-wrap items-center gap-2 text-xs">
-          <span className="mr-1 text-[11px] font-medium uppercase tracking-[0.18em] text-[#86868B]">
-            University
-          </span>
-          {universityOptions.map((option) => (
-            <button
-              key={option.key}
-              type="button"
-              onClick={() => setUniversity(option.key)}
-              className={`inline-flex items-center rounded-full px-3 py-1 ${
-                university === option.key
-                  ? "bg-[#1f3c88] text-white"
-                  : "bg-slate-100 text-[#1D1D1F] hover:bg-slate-200"
-              }`}
-            >
-              {option.label}
-            </button>
-          ))}
+        <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
+          <div className="space-y-2">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
+              Filter by level
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {levelOptions.map((option) => (
+                <button
+                  key={option.key}
+                  type="button"
+                  onClick={() => setLevel(option.key)}
+                  className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                    level === option.key
+                      ? "bg-[linear-gradient(135deg,#165df5,#0d47c4)] text-white shadow-[0_12px_28px_rgba(22,93,245,0.22)]"
+                      : "bg-white text-[var(--foreground)] shadow-[0_8px_18px_rgba(16,32,58,0.06)] hover:bg-[#eef3fa]"
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div className="space-y-2">
+            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
+              Filter by university
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {universityOptions.map((option) => (
+                <button
+                  key={option.key}
+                  type="button"
+                  onClick={() => setUniversity(option.key)}
+                  className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+                    university === option.key
+                      ? "bg-[linear-gradient(135deg,#165df5,#0d47c4)] text-white shadow-[0_12px_28px_rgba(22,93,245,0.22)]"
+                      : "bg-white text-[var(--foreground)] shadow-[0_8px_18px_rgba(16,32,58,0.06)] hover:bg-[#eef3fa]"
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       </motion.section>
 

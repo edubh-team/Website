@@ -35,31 +35,31 @@ export function FAQAccordion() {
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   return (
-    <section className="mt-10 space-y-4">
+    <section className="surface-card px-5 py-5 sm:px-6">
       <div>
-        <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#86868B]">
+        <h2 className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
           FAQs
         </h2>
-        <p className="mt-1 text-xs text-[#86868B]">
+        <p className="mt-2 text-sm leading-7 text-[var(--muted)]">
           Answers to common questions from learners and parents.
         </p>
       </div>
-      <div className="space-y-2">
+      <div className="mt-5 space-y-3">
         {items.map((item, index) => {
           const open = index === activeIndex;
           return (
             <div
               key={item.question}
-              className="overflow-hidden rounded-2xl border border-gray-200 bg-white/90 shadow-[0_2px_8px_rgba(0,0,0,0.04)] backdrop-blur-xl"
+              className="overflow-hidden rounded-[1.5rem] border border-white/70 bg-white/92 shadow-[0_14px_28px_rgba(16,32,58,0.06)]"
             >
               <button
                 type="button"
                 onClick={() => setActiveIndex(open ? null : index)}
-                className="flex w-full items-center justify-between px-4 py-3 text-left text-xs text-[#1D1D1F]"
+                className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left text-sm font-semibold text-[var(--foreground)]"
               >
                 <span>{item.question}</span>
-                <span className="ml-3 text-base text-[#86868B]">
-                  {open ? "–" : "+"}
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#eef3fa] text-lg text-[var(--muted)]">
+                  {open ? "-" : "+"}
                 </span>
               </button>
               <AnimatePresence initial={false}>
@@ -70,7 +70,7 @@ export function FAQAccordion() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.22, ease: "easeOut" }}
                   >
-                    <div className="border-t border-gray-200 bg-[#F5F5F7] px-4 py-3 text-xs text-[#86868B]">
+                    <div className="border-t border-[rgba(109,132,170,0.12)] bg-[linear-gradient(180deg,rgba(22,93,245,0.04),rgba(255,255,255,0.92))] px-4 py-4 text-sm leading-7 text-[var(--muted)]">
                       {item.answer}
                     </div>
                   </motion.div>

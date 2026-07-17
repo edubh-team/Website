@@ -6,19 +6,15 @@ import React, {
   createContext,
   useContext,
 } from "react";
-import {
-  IconArrowNarrowLeft,
-  IconArrowNarrowRight,
-} from "@tabler/icons-react";
 // import { IconX } from "@tabler/icons-react";
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
 import { useOutsideClick } from "@/hooks/use-outside-click";
 import { StaticImageData } from "next/image";
 
 interface CarouselProps {
-  items: JSX.Element[];
+  items: React.ReactElement[];
 }
 
 type Card = {
@@ -48,13 +44,13 @@ export const Carousel = ({ items }: CarouselProps) => {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useOutsideClick(containerRef, () => handleClose());
-
   const handleClose = () => {
     setOpen(false);
     setSelectedCard(null);
     setCurrentIndex(-1);
   };
+
+  useOutsideClick(containerRef, () => handleClose());
 
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {

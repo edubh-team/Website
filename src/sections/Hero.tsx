@@ -6,7 +6,6 @@ import cylImage from "@/assets/cylinder.png";
 import noodelImage from "@/assets/noodle.png";
 import amityLogo from "@/assets/amity.png";
 import manipalLogo from "@/assets/manipal.png";
-import { FloatingDock } from "@/components/ui/floating-dock";
 import { ScrollTextReveal } from "@/components/ui/scroll-text-reveal";
 import { 
   IconBrandGithub,
@@ -30,44 +29,6 @@ export const Hero = () => {
   });
 
   const translateY = useTransform(scrollYProgress, [0, 1], [150, -150]);
-
-  const links = [
-    {
-      title: "Home",
-      icon: (
-        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
-    },
-    {
-      title: "Programs",
-      icon: (
-        <IconBook className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#product-showcase",
-    },
-    {
-      title: "Universities",
-      icon: (
-        <IconSchool className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#logoticker",
-    },
-    {
-      title: "Contact",
-      icon: (
-        <IconPhone className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "/contact",
-    },
-    {
-      title: "Apply Now",
-      icon: (
-        <IconUsers className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "/apply",
-    },
-  ];
 
   return (
     <section
@@ -132,13 +93,6 @@ export const Hero = () => {
           </div>
         </div>
       </div>
-      
-      {/* Floating Dock */}
-      <FloatingDock
-        items={links}
-        desktopClassName="bg-white/10 backdrop-blur-md border border-white/20"
-        mobileClassName="bg-white/10 backdrop-blur-md border border-white/20"
-      />
     </section>
   );
 };
