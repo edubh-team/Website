@@ -1,23 +1,8 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
 import "./globals.css";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { SiteFooter } from "@/components/ui/footer";
 import { SiteHeader } from "@/components/ui/site-header";
-
-const manrope = Manrope({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const fraunces = Fraunces({
-  variable: "--font-display",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["500", "600", "700"],
-});
 
 export const metadata: Metadata = {
   title: "EduBh - Industry-Ready Education",
@@ -32,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${manrope.variable} ${fraunces.variable} antialiased`}>
+      <body className="antialiased">
         <div className="site-shell min-h-screen">
           <div
             aria-hidden="true"
@@ -53,3 +38,4 @@ export default function RootLayout({
     </html>
   );
 }
+

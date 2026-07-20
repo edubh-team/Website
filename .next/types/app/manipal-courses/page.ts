@@ -1,4 +1,4 @@
-// File: C:\Users\kartik singh\OneDrive\Documents\edubh_website\Website\src\app\manipal-courses\page.tsx
+// File: C:\Users\HP\Desktop\edubhpro\edubh.com\src\app\manipal-courses\page.tsx
 import * as entry from '../../../../src/app/manipal-courses/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

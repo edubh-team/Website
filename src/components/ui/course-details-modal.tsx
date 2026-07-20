@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Clock, X } from "lucide-react";
+import { Clock, Download, ExternalLink, X } from "lucide-react";
 import Link from "next/link";
 import type { Course } from "@/data/courses";
 
@@ -86,6 +86,26 @@ export function CourseDetailsModal({ course, onClose }: CourseDetailsModalProps)
                   work, and personalised support from the EduBh counselling team.
                 </p>
               </div>
+              {course.brochures.length > 0 && (
+                <div className="rounded-[1.4rem] border border-[rgba(109,132,170,0.16)] bg-white/90 px-4 py-4">
+                  <p className="mb-3 font-semibold text-[var(--foreground)]">Course brochures</p>
+                  <div className="space-y-3">
+                    {course.brochures.map((brochure) => (
+                      <div key={brochure.file} className="flex flex-col gap-3 rounded-[1rem] bg-[#f6f8fc] px-3 py-3 sm:flex-row sm:items-center sm:justify-between">
+                        <span className="font-medium text-[var(--foreground)]">{brochure.title}</span>
+                        <div className="flex shrink-0 flex-wrap gap-2">
+                          <a href={brochure.file} target="_blank" rel="noreferrer" className="button-ghost inline-flex items-center gap-2 text-xs">
+                            <ExternalLink className="h-3.5 w-3.5" /> View
+                          </a>
+                          <a href={brochure.file} download className="button-ghost inline-flex items-center gap-2 text-xs">
+                            <Download className="h-3.5 w-3.5" /> Download
+                          </a>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </section>
 
             <footer className="mt-6 flex flex-col gap-4 border-t border-[rgba(109,132,170,0.14)] pt-5 sm:flex-row sm:items-center sm:justify-between">
@@ -102,3 +122,5 @@ export function CourseDetailsModal({ course, onClose }: CourseDetailsModalProps)
     </AnimatePresence>
   );
 }
+
+

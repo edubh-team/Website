@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactCompiler: true,
+  distDir: process.env.NODE_ENV === "development" ? "tmp/next-dev" : ".next",
+  reactCompiler: process.env.NODE_ENV === "production",
   experimental: {
     optimizePackageImports: ["@tabler/icons-react", "framer-motion"],
   },
@@ -14,6 +15,10 @@ const nextConfig: NextConfig = {
     },
   },
   webpack(config) {
+    if (process.env.NODE_ENV === "development") {
+      config.cache = false;
+    }
+
     const fileLoaderRule = config.module.rules.find(
       (rule: {
         test?: { test?: (value: string) => boolean };
@@ -48,3 +53,6 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+
+

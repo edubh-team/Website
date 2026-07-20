@@ -6,7 +6,7 @@ import Image from "next/image";
 import type { LeadSource } from "@/components/ui/application-form";
 
 const stats = [
-  { value: "3", label: "Partner universities" },
+  { value: "8", label: "Partner universities" },
   { value: "2000+", label: "Learners" },
   { value: "4.9/5", label: "Average satisfaction" },
 ];
@@ -197,3 +197,4 @@ export function Hero({ onOpenApplicationModal }: HeroProps) {
     </section>
   );
 }
+

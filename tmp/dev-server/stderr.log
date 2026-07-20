@@ -1,0 +1,81 @@
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+Request timed out after 3000ms
+
+Retrying 1/3...
+⨯ TypeError: Cannot read properties of undefined (reading 'localeCompare')
+    at eval (src\components\ui\application-form.tsx:30:44)
+    at Array.sort (<anonymous>)
+    at eval (src\components\ui\application-form.tsx:29:6)
+    at (ssr)/./src/components/ui/application-form.tsx (C:\Users\HP\Desktop\edubhpro\edubh.com\tmp\next-dev\dev\server\app\page.js:364:1)
+    at eval (webpack-internal:///(ssr)/./src/components/ui/application-experience.tsx:7:89)
+    at (ssr)/./src/components/ui/application-experience.tsx (C:\Users\HP\Desktop\edubhpro\edubh.com\tmp\next-dev\dev\server\app\page.js:353:1)
+    at eval (webpack-internal:///(ssr)/./src/components/ui/application-modal.tsx:12:95)
+    at (ssr)/./src/components/ui/application-modal.tsx (C:\Users\HP\Desktop\edubhpro\edubh.com\tmp\next-dev\dev\server\app\page.js:375:1)
+    at eval (webpack-internal:///(ssr)/./src/app/page.tsx:15:90)
+    at (ssr)/./src/app/page.tsx (C:\Users\HP\Desktop\edubhpro\edubh.com\tmp\next-dev\dev\server\app\page.js:254:1)
+  28 |     .slice()
+  29 |     .sort((left, right) => {
+> 30 |       const byUniversity = left.university.localeCompare(right.university);
+     |                                            ^
+  31 |       if (byUniversity !== 0) {
+  32 |         return byUniversity;
+  33 |       } {
+  digest: '407024471'
+}
+⨯ TypeError: Cannot read properties of undefined (reading 'localeCompare')
+    at eval (src\components\ui\application-form.tsx:30:44)
+    at Array.sort (<anonymous>)
+    at eval (src\components\ui\application-form.tsx:29:6)
+    at (ssr)/./src/components/ui/application-form.tsx (C:\Users\HP\Desktop\edubhpro\edubh.com\tmp\next-dev\dev\server\app\page.js:364:1)
+    at eval (webpack-internal:///(ssr)/./src/components/ui/application-experience.tsx:7:89)
+    at (ssr)/./src/components/ui/application-experience.tsx (C:\Users\HP\Desktop\edubhpro\edubh.com\tmp\next-dev\dev\server\app\page.js:353:1)
+    at eval (webpack-internal:///(ssr)/./src/components/ui/application-modal.tsx:12:95)
+    at (ssr)/./src/components/ui/application-modal.tsx (C:\Users\HP\Desktop\edubhpro\edubh.com\tmp\next-dev\dev\server\app\page.js:375:1)
+    at eval (webpack-internal:///(ssr)/./src/app/page.tsx:15:90)
+    at (ssr)/./src/app/page.tsx (C:\Users\HP\Desktop\edubhpro\edubh.com\tmp\next-dev\dev\server\app\page.js:254:1)
+  28 |     .slice()
+  29 |     .sort((left, right) => {
+> 30 |       const byUniversity = left.university.localeCompare(right.university);
+     |                                            ^
+  31 |       if (byUniversity !== 0) {
+  32 |         return byUniversity;
+  33 |       } {
+  digest: '407024471'
+}
+⨯ SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>) {
+  page: '/courses'
+}
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+⨯ SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>) {
+  page: '/'
+}
+⨯ SyntaxError: Unexpected end of JSON input
+    at JSON.parse (<anonymous>) {
+  page: '/courses'
+}

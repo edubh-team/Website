@@ -7,6 +7,11 @@ const logos = [
   { name: "Manipal University", short: "Manipal", src: "/manipal.png" },
   { name: "Jain University", short: "Jain", src: "/jain.png" },
   { name: "Sharda University Online", short: "Sharda", src: "/sharda.png" },
+  { name: "Lovely Professional University Online", short: "LPU Online", src: "/universities/lpu-online.svg" },
+  { name: "ARKA JAIN University Online", short: "ARKA JAIN", src: "/universities/arka-jain-online-v2.png" },
+  { name: "Dr. D. Y. Patil Vidyapeeth Online", short: "D. Y. Patil", src: "/universities/dy-patil-online.png" },
+  { name: "Amity University", short: "Amity Online", src: "/universities/amity-online.png" },
+  { name: "Shoolini University Online", short: "Shoolini", src: "/universities/shoolini-online.png" },
 ];
 
 export function LogoTicker() {
@@ -70,3 +75,4 @@ export function LogoTicker() {
     </section>
   );
 }
+

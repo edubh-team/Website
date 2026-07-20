@@ -3,13 +3,13 @@
 import { Suspense, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { courses } from "@/data/courses";
+import { courses, universityNames } from "@/data/courses";
 import type { Course } from "@/data/courses";
 import { CourseCategorySection } from "@/components/ui/course-category-section";
 import { CourseDetailsModal } from "@/components/ui/course-details-modal";
 
 type LevelFilter = "all" | "ug" | "pg" | "integrated";
-type UniversityFilter = "all" | "manipal" | "jain" | "sharda";
+type UniversityFilter = "all" | (typeof universityNames)[number];
 
 const levelOptions: { key: LevelFilter; label: string }[] = [
   { key: "all", label: "All" },
@@ -20,9 +20,7 @@ const levelOptions: { key: LevelFilter; label: string }[] = [
 
 const universityOptions: { key: UniversityFilter; label: string }[] = [
   { key: "all", label: "All partners" },
-  { key: "manipal", label: "Manipal University" },
-  { key: "jain", label: "Jain University" },
-  { key: "sharda", label: "Sharda University Online" },
+  ...universityNames.map((name) => ({ key: name, label: name })),
 ];
 
 function CoursesPageContent() {
@@ -46,16 +44,11 @@ function CoursesPageContent() {
             ? course.category === "Undergraduate"
             : level === "pg"
               ? course.category === "Postgraduate"
-              : course.category === "Integrated";
+              : level === "integrated"
+              ? course.category === "Integrated"
+              : course.category === "Certification";
 
-      const matchesUniversity =
-        university === "all"
-          ? true
-          : university === "manipal"
-            ? course.university === "Manipal University"
-            : university === "jain"
-              ? course.university === "Jain University"
-              : course.university === "Sharda University Online";
+      const matchesUniversity = university === "all" || course.university === university;
 
       return matchesLevel && matchesUniversity;
     });
@@ -66,6 +59,7 @@ function CoursesPageContent() {
       ug: filtered.filter((course) => course.category === "Undergraduate"),
       pg: filtered.filter((course) => course.category === "Postgraduate"),
       integrated: filtered.filter((course) => course.category === "Integrated"),
+      certification: filtered.filter((course) => course.category === "Certification"),
     };
   }, [filtered]);
 
@@ -85,13 +79,13 @@ function CoursesPageContent() {
             </div>
             <h1 className="section-title text-balance">Explore programs</h1>
             <p className="max-w-3xl text-base leading-8 text-[var(--muted)]">
-              Curated undergraduate, postgraduate, and integrated programs from
-              Manipal University, Jain University, and Sharda University Online.
+              Explore online degree and certificate programs from our university
+              partners, with one guided application process.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="trust-pill">
-              <strong>3</strong>
+              <strong>{universityNames.length}</strong>
               <span>University partners</span>
             </div>
             <div className="trust-pill">
@@ -115,7 +109,7 @@ function CoursesPageContent() {
         <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]">
           <div className="space-y-2">
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
-              Filter by level
+              Level
             </p>
             <div className="flex flex-wrap gap-2">
               {levelOptions.map((option) => (
@@ -136,7 +130,7 @@ function CoursesPageContent() {
           </div>
           <div className="space-y-2">
             <p className="text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-[var(--muted)]">
-              Filter by university
+              University
             </p>
             <div className="flex flex-wrap gap-2">
               {universityOptions.map((option) => (
@@ -159,25 +153,33 @@ function CoursesPageContent() {
       </motion.section>
 
       <motion.div
-        layout
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.12, type: "spring", stiffness: 120, damping: 20 }}
         className="space-y-8"
       >
         <CourseCategorySection
+          key={`ug-${level}-${university}`}
           title="Undergraduate (UG)"
           courses={grouped.ug}
           onSelect={setSelected}
         />
         <CourseCategorySection
+          key={`pg-${level}-${university}`}
           title="Postgraduate (PG)"
           courses={grouped.pg}
           onSelect={setSelected}
         />
         <CourseCategorySection
+          key={`integrated-${level}-${university}`}
           title="Integrated Programs"
           courses={grouped.integrated}
+          onSelect={setSelected}
+        />
+        <CourseCategorySection
+          key={`certification-${level}-${university}`}
+          title="Certificate & Diploma Programs"
+          courses={grouped.certification}
           onSelect={setSelected}
         />
       </motion.div>
@@ -201,3 +203,11 @@ export default function CoursesPage() {
     </Suspense>
   );
 }
+
+
+
+
+
+
+
+

@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
+import { offices } from "@/data/offices";
 
 type ContactForm = {
   name: string;
@@ -171,9 +173,54 @@ export default function ContactPage() {
               </li>
             </ul>
           </div>
+          <section className="surface-card px-5 py-5 sm:px-6">
+            <div className="mb-4 flex items-center gap-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-purple-50 text-purple-600">
+                <MapPin className="h-5 w-5" />
+              </div>
+              <div>
+                <h2 className="text-sm font-bold text-[var(--foreground)]">
+                  Office Locations
+                </h2>
+                <p className="text-xs text-[var(--muted)]">
+                  Find and visit any of our branches
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-1">
+              {offices.map((office) => (
+                <article
+                  key={office.slug}
+                  className="flex items-start gap-3 rounded-lg border border-white/30 bg-white p-3 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md"
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-purple-50 text-purple-600">
+                    <MapPin className="h-4 w-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="text-sm font-semibold text-gray-900">
+                      {office.city} - {office.officeName}
+                    </h3>
+                    <p className="text-sm leading-6 text-gray-600">
+                      {office.fullAddress}
+                    </p>
+                    <Link
+                      href={`/contact/${office.slug}`}
+                      className="mt-1 inline-block text-sm font-medium text-indigo-600 hover:underline"
+                    >
+                      View Branch Details
+                    </Link>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
           <FAQAccordion />
         </aside>
       </div>
     </div>
   );
 }
+
+

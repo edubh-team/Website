@@ -133,7 +133,13 @@ export const Carousel = ({ items }: CarouselProps) => {
               className="relative z-[60] mx-auto max-w-4xl w-full rounded-3xl bg-gradient-to-br from-white to-blue-50 dark:from-neutral-800 dark:to-neutral-900 p-4 md:p-6 shadow-xl"
               ref={containerRef}
             >
-              <Image src={selectedCard.src} alt={selectedCard.title} width={120} height={120} className="mb-4" />
+              <Image
+                src={selectedCard.src}
+                alt={selectedCard.title}
+                width={168}
+                height={168}
+                className="mx-auto mb-5 h-36 w-36 object-contain sm:h-[10.5rem] sm:w-[10.5rem]"
+              />
               <motion.p
                 className="text-base font-medium text-gray-600 dark:text-white"
               >
@@ -201,8 +207,16 @@ export const Card = ({
         />
       )}
       <div className="pointer-events-none absolute inset-x-0 top-0 z-30 h-full bg-gradient-to-b from-black/50 via-transparent to-transparent" />
-      <div className="relative z-40 p-8">
-        <Image src={card.src} alt={card.title} width={80} height={80} className="mb-2" />
+      <div className="relative z-40 w-full p-5 sm:p-6 md:p-8">
+        <div className="mb-3 flex h-28 w-28 items-center justify-center">
+          <Image
+            src={card.src}
+            alt={card.title}
+            width={112}
+            height={112}
+            className="h-full w-full object-contain"
+          />
+        </div>
         <motion.p
           className="text-left font-sans text-sm font-medium text-white md:text-base"
         >
@@ -245,3 +259,4 @@ export const BlurImage = ({
     />
   );
 }; 
+

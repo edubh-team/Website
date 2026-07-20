@@ -1,0 +1,55 @@
+
+> edubh@0.1.0 dev
+> next dev --webpack
+
+▲ Next.js 16.1.1 (webpack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.7:3000
+- Environments: .env.local
+- Experiments (use with caution):
+  · optimizePackageImports
+
+✓ Starting...
+
+  We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+  The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+  	- include was updated to add 'tmp/next-dev/types/**/*.ts'
+  	- include was updated to add 'tmp/next-dev/dev/types/**/*.ts'
+
+✓ Ready in 20.2s
+○ Compiling / ...
+ GET / 500 in 64s (compile: 59s, render: 5.1s)
+○ Compiling / ...
+ GET / 500 in 11.7s (compile: 7.3s, render: 4.3s)
+○ Compiling / ...
+ GET / 200 in 10.5s (compile: 7.1s, render: 3.4s)
+○ Compiling /courses ...
+ GET /courses 200 in 14.3s (compile: 11.6s, render: 2.7s)
+ GET / 200 in 2.6s (compile: 163ms, render: 2.4s)
+ GET /courses 200 in 2.4s (compile: 71ms, render: 2.4s)
+ GET / 200 in 2.5s (compile: 784ms, render: 1684ms)
+ GET /courses 200 in 3.5s (compile: 102ms, render: 3.4s)
+ GET /courses 200 in 3.5s (compile: 72ms, render: 3.4s)
+ GET / 200 in 1203ms (compile: 121ms, render: 1082ms)
+ GET / 200 in 2.0s (compile: 681ms, render: 1319ms)
+○ Compiling /_error ...
+ GET /courses 200 in 48s (compile: 41s, render: 7.5s)
+ GET / 200 in 2.2s (compile: 324ms, render: 1836ms)
+ GET / 200 in 36.4s (compile: 25.7s, render: 10.8s)
+ GET /courses 200 in 5.0s (compile: 330ms, render: 4.6s)
+ GET / 200 in 3.7s (compile: 159ms, render: 3.6s)
+ GET / 200 in 9.0s (compile: 469ms, render: 8.6s)
+ GET /courses 200 in 6.3s (compile: 1385ms, render: 4.9s)
+ GET / 200 in 7.1s (compile: 780ms, render: 6.3s)
+ GET / 200 in 3.3s (compile: 164ms, render: 3.1s)
+ GET / 200 in 2.9s (compile: 871ms, render: 2.0s)
+ GET / 200 in 2.3s (compile: 1313ms, render: 1020ms)
+ GET / 200 in 5.8s (compile: 430ms, render: 5.3s)
+ GET / 200 in 11.9s (compile: 323ms, render: 11.6s)
+ GET /courses 200 in 4.2s (compile: 397ms, render: 3.8s)
+ GET /courses 200 in 1211ms (compile: 367ms, render: 844ms)
+ GET /courses 200 in 2.3s (compile: 373ms, render: 1913ms)
+ GET /courses 200 in 638ms (compile: 46ms, render: 592ms)
+ GET /courses 200 in 6.5s (compile: 2.6s, render: 3.9s)
+[?25h

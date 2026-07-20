@@ -1,0 +1,24 @@
+
+> edubh@0.1.0 dev
+> next dev --webpack
+
+▲ Next.js 16.1.1 (webpack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.7:3000
+- Environments: .env.local
+- Experiments (use with caution):
+  · optimizePackageImports
+
+✓ Starting...
+✓ Ready in 22.1s
+○ Compiling /courses ...
+ GET /courses 200 in 71s (compile: 66s, render: 4.7s)
+ GET /courses 200 in 71s (compile: 66s, render: 4.7s)
+ GET /courses 200 in 71s (compile: 66s, render: 4.7s)
+ GET /courses 200 in 71s (compile: 66s, render: 4.7s)
+ GET /courses 200 in 52s (compile: 47s, render: 4.7s)
+ GET /courses 200 in 71s (compile: 66s, render: 4.7s)
+ GET /courses 200 in 62s (compile: 58s, render: 4.8s)
+ GET /courses 200 in 2.5s (compile: 165ms, render: 2.3s)
+ GET /courses 200 in 1896ms (compile: 76ms, render: 1820ms)
+[?25h

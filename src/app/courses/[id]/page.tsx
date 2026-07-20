@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Download, ExternalLink } from "lucide-react";
 import { notFound } from "next/navigation";
 import { courses } from "@/data/courses";
 
@@ -94,6 +95,29 @@ export default async function CourseDetail({ params }: CoursePageProps) {
                 university admissions team.
               </p>
             </div>
+            {course.brochures.length > 0 && (
+              <div className="rounded-[1.55rem] border border-[rgba(109,132,170,0.16)] bg-white/92 px-5 py-5 shadow-[0_16px_32px_rgba(16,32,58,0.06)]">
+                <p className="mb-1 text-base font-semibold text-[var(--foreground)]">Course brochures</p>
+                <p className="mb-4 text-sm leading-7 text-[var(--muted)]">
+                  View the complete program details online or download the PDF for later.
+                </p>
+                <div className="space-y-3">
+                  {course.brochures.map((brochure) => (
+                    <div key={brochure.file} className="flex flex-col gap-3 rounded-[1.2rem] bg-[#f6f8fc] px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
+                      <span className="font-medium text-[var(--foreground)]">{brochure.title}</span>
+                      <div className="flex shrink-0 flex-wrap gap-2">
+                        <a href={brochure.file} target="_blank" rel="noreferrer" className="button-ghost inline-flex items-center gap-2 text-sm">
+                          <ExternalLink className="h-4 w-4" /> View PDF
+                        </a>
+                        <a href={brochure.file} download className="button-primary inline-flex items-center gap-2 text-sm">
+                          <Download className="h-4 w-4" /> Download
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
@@ -142,3 +166,4 @@ export default async function CourseDetail({ params }: CoursePageProps) {
     </div>
   );
 }
+

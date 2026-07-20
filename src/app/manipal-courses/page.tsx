@@ -32,11 +32,11 @@ export default function ManipalCoursesPage() {
           <div className="space-y-4">
             <div className="eyebrow">
               <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              <span>Manipal University</span>
+              <span>Manipal Online</span>
             </div>
-            <h1 className="section-title">Manipal University Courses</h1>
+            <h1 className="section-title">Manipal Online Courses</h1>
             <p className="max-w-3xl text-base leading-8 text-[var(--muted)]">
-              Explore our wide range of programs.
+              Explore the complete range of Manipal University programs.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
@@ -132,3 +132,7 @@ export default function ManipalCoursesPage() {
     </div>
   );
 }
+
+
+
+

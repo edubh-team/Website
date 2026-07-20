@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  --font-sans: "Segoe UI Variable", "Segoe UI", Arial, sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
   --background: #f4f7fb;
   --background-strong: #e9eef7;
   --foreground: #10203a;
@@ -364,3 +366,4 @@ select.floating-input + .floating-label {
     min-width: unset;
   }
 }
+
