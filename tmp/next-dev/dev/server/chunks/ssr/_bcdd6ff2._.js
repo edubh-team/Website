@@ -467,6 +467,21 @@ function SiteFooter() {
                                                         fileName: "[project]/src/components/ui/footer.tsx",
                                                         lineNumber: 124,
                                                         columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                                                            href: "/feedback",
+                                                            className: "transition hover:text-white",
+                                                            children: "Share feedback"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/components/ui/footer.tsx",
+                                                            lineNumber: 130,
+                                                            columnNumber: 19
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/ui/footer.tsx",
+                                                        lineNumber: 129,
+                                                        columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
@@ -487,7 +502,7 @@ function SiteFooter() {
                                                 children: "Legal"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/ui/footer.tsx",
-                                                lineNumber: 132,
+                                                lineNumber: 137,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -500,12 +515,12 @@ function SiteFooter() {
                                                             children: "Terms of use"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/ui/footer.tsx",
-                                                            lineNumber: 137,
+                                                            lineNumber: 142,
                                                             columnNumber: 19
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/ui/footer.tsx",
-                                                        lineNumber: 136,
+                                                        lineNumber: 141,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -515,24 +530,24 @@ function SiteFooter() {
                                                             children: "Privacy policy"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/ui/footer.tsx",
-                                                            lineNumber: 142,
+                                                            lineNumber: 147,
                                                             columnNumber: 19
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/ui/footer.tsx",
-                                                        lineNumber: 141,
+                                                        lineNumber: 146,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/ui/footer.tsx",
-                                                lineNumber: 135,
+                                                lineNumber: 140,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/ui/footer.tsx",
-                                        lineNumber: 131,
+                                        lineNumber: 136,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -542,7 +557,7 @@ function SiteFooter() {
                                                 children: "Partners"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/ui/footer.tsx",
-                                                lineNumber: 149,
+                                                lineNumber: 154,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -552,68 +567,68 @@ function SiteFooter() {
                                                         children: "Manipal University"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/ui/footer.tsx",
-                                                        lineNumber: 153,
+                                                        lineNumber: 158,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                         children: "Jain University"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/ui/footer.tsx",
-                                                        lineNumber: 154,
+                                                        lineNumber: 159,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                         children: "Sharda University Online"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/ui/footer.tsx",
-                                                        lineNumber: 155,
+                                                        lineNumber: 160,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                         children: "Arka Jain University Online"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/ui/footer.tsx",
-                                                        lineNumber: 156,
+                                                        lineNumber: 161,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                         children: "Dr. D. Y. Patil Vidyapeeth Online"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/ui/footer.tsx",
-                                                        lineNumber: 157,
+                                                        lineNumber: 162,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                         children: "Amity University"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/ui/footer.tsx",
-                                                        lineNumber: 158,
+                                                        lineNumber: 163,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                         children: "Lovely Professional University Online"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/ui/footer.tsx",
-                                                        lineNumber: 159,
+                                                        lineNumber: 164,
                                                         columnNumber: 17
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
                                                         children: "Shoolini University Online"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/ui/footer.tsx",
-                                                        lineNumber: 160,
+                                                        lineNumber: 165,
                                                         columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/ui/footer.tsx",
-                                                lineNumber: 152,
+                                                lineNumber: 157,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/ui/footer.tsx",
-                                        lineNumber: 148,
+                                        lineNumber: 153,
                                         columnNumber: 13
                                     }, this)
                                 ]
@@ -635,20 +650,20 @@ function SiteFooter() {
                                 children: "© 2025 EduBh"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ui/footer.tsx",
-                                lineNumber: 167,
+                                lineNumber: 172,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 children: "EduBh. Bridging Academia and Industry. All rights reserved."
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ui/footer.tsx",
-                                lineNumber: 168,
+                                lineNumber: 173,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ui/footer.tsx",
-                        lineNumber: 166,
+                        lineNumber: 171,
                         columnNumber: 9
                     }, this)
                 ]
@@ -3409,124 +3424,6 @@ function getImageProps(imgProps) {
             ]),
             "qualities": ("TURBOPACK compile-time value", [
                 ("TURBOPACK compile-time value", 75),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
-                ("TURBOPACK compile-time value", 70),
                 ("TURBOPACK compile-time value", 70),
                 ("TURBOPACK compile-time value", 70),
                 ("TURBOPACK compile-time value", 70),

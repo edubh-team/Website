@@ -31,8 +31,7 @@ export function ApplicationExperience({
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--muted)] sm:text-lg">
               Tell us about your aspirations. Our EduBh advisors will curate the
-              perfect academic path for you at Manipal, Jain, or Sharda University
-              Online.
+              perfect academic path for you across our eight partner universities.
             </p>
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
@@ -41,7 +40,7 @@ export function ApplicationExperience({
               <span>Unified application</span>
             </div>
             <div className="trust-pill">
-              <strong>3</strong>
+              <strong>8</strong>
               <span>Partner universities</span>
             </div>
             <div className="trust-pill">
@@ -60,3 +59,4 @@ export function ApplicationExperience({
     </div>
   );
 }
+

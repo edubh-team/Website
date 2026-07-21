@@ -14,6 +14,7 @@ const lpuAll = item("LPU Online All Programs Prospectus 2025", "/brochures/lpu/a
 const arkaAll = item("ARKA JAIN Online Programs Prospectus", "/brochures/arka-jain/all-programs-prospectus.pdf");
 const dpuAll = item("DPU Online All Programs Prospectus", "/brochures/dpu/all-programs-prospectus.pdf");
 const smuAll = item("Sikkim Manipal Combined Brochure", "/brochures/manipal/smu-combined-brochure.pdf");
+const shooliniAll = item("Shoolini Online Brand & Programs Brochure 2026", "/brochures/shoolini/brand-programs-brochure-2026.pdf");
 const arkaCourseIds = [
     "aju-bba",
     "aju-bca",
@@ -57,6 +58,18 @@ const dpuCourseIds = [
     "dpu-cert-digital-marketing",
     "dpu-cert-healthcare"
 ];
+const shooliniCourseIds = [
+    "shoolini-bba",
+    "shoolini-bca",
+    "shoolini-bcom-hons",
+    "shoolini-ba-distance",
+    "shoolini-mba",
+    "shoolini-mba-premium",
+    "shoolini-mca",
+    "shoolini-msc-data-science",
+    "shoolini-ma-english-literature",
+    "shoolini-ma-journalism-mass-communication"
+];
 const brochuresByCourseId = {
     ...Object.fromEntries(arkaCourseIds.map((id)=>[
             id,
@@ -68,6 +81,12 @@ const brochuresByCourseId = {
             id,
             [
                 dpuAll
+            ]
+        ])),
+    ...Object.fromEntries(shooliniCourseIds.map((id)=>[
+            id,
+            [
+                shooliniAll
             ]
         ])),
     "lpu-bba": [
@@ -279,7 +298,8 @@ const universityNames = [
     "Dr. D. Y. Patil Vidyapeeth Online",
     "Amity University",
     "Jain University",
-    "Sharda University Online"
+    "Sharda University Online",
+    "Shoolini University Online"
 ];
 const make = (university, programs)=>programs.map((program)=>({
             ...program,
@@ -416,6 +436,18 @@ const jain = [
 const sharda = [
     ug("bba-sharda-online", "BBA - Online Business Administration", "3 Years • Online • Flexible")
 ];
+const shoolini = [
+    ug("shoolini-bba", "Bachelor of Business Administration (BBA)"),
+    ug("shoolini-bca", "Bachelor of Computer Applications (BCA)"),
+    ug("shoolini-bcom-hons", "Bachelor of Commerce (Honours)"),
+    ug("shoolini-ba-distance", "Bachelor of Arts (BA)", "3 Years • Distance"),
+    pg("shoolini-mba", "Master of Business Administration (MBA)"),
+    pg("shoolini-mba-premium", "Master of Business Administration Premium"),
+    pg("shoolini-mca", "Master of Computer Applications (MCA)"),
+    pg("shoolini-msc-data-science", "Master of Science in Data Science"),
+    pg("shoolini-ma-english-literature", "Master of Arts in English Literature"),
+    pg("shoolini-ma-journalism-mass-communication", "Master of Arts in Journalism & Mass Communication")
+];
 const manipalLegacy = [
     ug("btech-manipal", "B.Tech - Computer Science & Engineering", "4 Years • Full-time • On-campus"),
     pg("mca-manipal", "MCA - Advanced Software Systems", "2 Years • Full-time • Hybrid"),
@@ -442,6 +474,7 @@ const courses = [
     ...make("Amity University", amity),
     ...make("Jain University", jain),
     ...make("Sharda University Online", sharda),
+    ...make("Shoolini University Online", shoolini),
     ...make("Manipal University", manipalLegacy)
 ];
 }),
@@ -1225,7 +1258,7 @@ function ApplicationExperience({ leadSource, resetSignal = 0, containerClassName
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "mt-4 max-w-3xl text-base leading-8 text-[var(--muted)] sm:text-lg",
-                                    children: "Tell us about your aspirations. Our EduBh advisors will curate the perfect academic path for you at Manipal, Jain, or Sharda University Online."
+                                    children: "Tell us about your aspirations. Our EduBh advisors will curate the perfect academic path for you across our eight partner universities."
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/ui/application-experience.tsx",
                                     lineNumber: 32,
@@ -1247,43 +1280,43 @@ function ApplicationExperience({ leadSource, resetSignal = 0, containerClassName
                                             children: "1"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                                            lineNumber: 40,
+                                            lineNumber: 39,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: "Unified application"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                                            lineNumber: 41,
+                                            lineNumber: 40,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/ui/application-experience.tsx",
-                                    lineNumber: 39,
+                                    lineNumber: 38,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "trust-pill",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                            children: "3"
+                                            children: "8"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                                            lineNumber: 44,
+                                            lineNumber: 43,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: "Partner universities"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                                            lineNumber: 45,
+                                            lineNumber: 44,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/ui/application-experience.tsx",
-                                    lineNumber: 43,
+                                    lineNumber: 42,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1293,26 +1326,26 @@ function ApplicationExperience({ leadSource, resetSignal = 0, containerClassName
                                             children: "24h"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                                            lineNumber: 48,
+                                            lineNumber: 47,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: "Advisor response window"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                                            lineNumber: 49,
+                                            lineNumber: 48,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/ui/application-experience.tsx",
-                                    lineNumber: 47,
+                                    lineNumber: 46,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                            lineNumber: 38,
+                            lineNumber: 37,
                             columnNumber: 11
                         }, this)
                     ]
@@ -1330,17 +1363,17 @@ function ApplicationExperience({ leadSource, resetSignal = 0, containerClassName
                             resetSignal: resetSignal
                         }, void 0, false, {
                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                            lineNumber: 56,
+                            lineNumber: 55,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/ui/application-experience.tsx",
-                        lineNumber: 55,
+                        lineNumber: 54,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/ui/application-experience.tsx",
-                    lineNumber: 54,
+                    lineNumber: 53,
                     columnNumber: 9
                 }, this)
             ]

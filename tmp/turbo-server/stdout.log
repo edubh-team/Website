@@ -178,3 +178,13 @@
  GET /contact 200 in 359ms (compile: 162ms, render: 197ms)
  GET /contact/bengaluru-rajajinagar 200 in 782ms (compile: 57ms, generate-params: 23ms, render: 725ms)
  GET / 200 in 134ms (compile: 19ms, render: 115ms)
+ GET /courses 200 in 317ms (compile: 26ms, render: 291ms)
+○ Compiling /courses ...
+ GET /courses 200 in 4.5s (compile: 3.4s, render: 1055ms)
+ GET /courses 200 in 9.4s (compile: 5.8s, render: 3.7s)
+ GET / 200 in 920ms (compile: 649ms, render: 271ms)
+ GET / 200 in 610ms (compile: 110ms, render: 501ms)
+ GET /courses 200 in 401ms (compile: 41ms, render: 360ms)
+ GET /courses 200 in 1719ms (compile: 146ms, render: 1572ms)
+ GET /courses 200 in 2.6s (compile: 17ms, render: 2.5s)
+[?25h

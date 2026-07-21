@@ -1,10 +1,8 @@
-import { collection, addDoc, doc, updateDoc, getDocs, query, orderBy, limit } from 'firebase/firestore'; // Import Firestore functions
+import { collection, addDoc, doc, updateDoc, getDocs, query, orderBy, limit, runTransaction, where } from 'firebase/firestore'; // Import Firestore functions
 import { firestore } from './firebase'; // Import only firestore
 
 // Check if Firebase is initialized
-const isFirebaseInitialized = () => {
-  return firestore && typeof window !== 'undefined'; // Check only for firestore
-};
+const isFirebaseInitialized = () => Boolean(firestore);
 
 export interface ApplicationData {
   id?: string; // Make id optional
@@ -152,6 +150,149 @@ export const updateApplicationStatusFirestore = async (id: string, status: 'pend
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error occurred'
+    };
+  }
+};
+
+export interface FeedbackData {
+  id?: string;
+  fullName: string;
+  email: string;
+  relationship: 'student' | 'alumni' | 'applicant' | 'parent' | 'other';
+  course?: string;
+  rating: number;
+  message: string;
+  timestamp: number;
+  status: 'new';
+}
+
+const normalizeFeedbackEmail = (email: string) => email.trim().toLowerCase();
+
+const createFeedbackDocumentId = async (email: string) => {
+  const bytes = new TextEncoder().encode(normalizeFeedbackEmail(email));
+  const hash = await crypto.subtle.digest('SHA-256', bytes);
+
+  return Array.from(new Uint8Array(hash))
+    .map((byte) => byte.toString(16).padStart(2, '0'))
+    .join('');
+};
+
+export const saveFeedback = async (
+  data: Omit<FeedbackData, 'id' | 'timestamp' | 'status'>,
+): Promise<{ success: boolean; duplicate?: boolean; id?: string; error?: string }> => {
+  if (!isFirebaseInitialized()) {
+    return {
+      success: false,
+      error: 'Feedback service is unavailable. Please try again later.',
+    };
+  }
+
+  try {
+    const normalizedEmail = normalizeFeedbackEmail(data.email);
+    const feedbackId = await createFeedbackDocumentId(normalizedEmail);
+    const feedbackRef = doc(firestore, 'feedback', feedbackId);
+
+    const result = await runTransaction(firestore, async (transaction) => {
+      const existingFeedback = await transaction.get(feedbackRef);
+
+      if (existingFeedback.exists()) {
+        return { duplicate: true };
+      }
+
+      transaction.set(feedbackRef, {
+        ...data,
+        fullName: data.fullName.trim(),
+        email: normalizedEmail,
+        course: data.course?.trim() || '',
+        message: data.message.trim(),
+        timestamp: Date.now(),
+        status: 'new',
+      } satisfies Omit<FeedbackData, 'id'>);
+
+      return { duplicate: false };
+    });
+
+    if (result.duplicate) {
+      return {
+        success: false,
+        duplicate: true,
+        error: 'Feedback has already been submitted with this email address.',
+      };
+    }
+
+    return {
+      success: true,
+      id: feedbackId,
+    };
+  } catch (error) {
+    console.error('Error saving feedback:', error);
+    return {
+      success: false,
+      error:
+        error instanceof Error
+          ? error.message
+          : 'Unable to submit feedback. Please try again.',
+    };
+  }
+};
+
+export interface PublicFeedback {
+  id: string;
+  fullName: string;
+  relationship: FeedbackData['relationship'];
+  course?: string;
+  rating: number;
+  message: string;
+  timestamp: number;
+}
+
+export const fetchFiveStarFeedback = async (): Promise<{
+  success: boolean;
+  data?: PublicFeedback[];
+  error?: string;
+}> => {
+  if (!isFirebaseInitialized()) {
+    return {
+      success: false,
+      error: 'Feedback service is unavailable.',
+    };
+  }
+
+  try {
+    const feedbackQuery = query(
+      collection(firestore, 'feedback'),
+      where('rating', '==', 5),
+      limit(20),
+    );
+    const snapshot = await getDocs(feedbackQuery);
+    const feedback = snapshot.docs
+      .map((feedbackDocument) => {
+        const data = feedbackDocument.data() as Omit<FeedbackData, 'id'>;
+
+        return {
+          id: feedbackDocument.id,
+          fullName: data.fullName,
+          relationship: data.relationship,
+          course: data.course,
+          rating: data.rating,
+          message: data.message,
+          timestamp: data.timestamp,
+        } satisfies PublicFeedback;
+      })
+      .sort((first, second) => second.timestamp - first.timestamp);
+
+    return {
+      success: true,
+      data: feedback,
+    };
+  } catch (error) {
+    console.error('Error fetching five-star feedback:', error);
+    return {
+      success: false,
+      error:
+        error instanceof Error
+          ? error.message
+          : 'Unable to load feedback.',
     };
   }
 };

@@ -11,6 +11,7 @@ const navItems = [
   { href: "/", label: "Home" },
   { href: "/courses", label: "Courses" },
   { href: "/apply", label: "Apply" },
+  { href: "/feedback", label: "Feedback" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -146,3 +147,4 @@ export function SiteHeader() {
     </header>
   );
 }
+

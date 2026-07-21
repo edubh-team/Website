@@ -1524,8 +1524,10 @@ __turbopack_context__.s([
     ()=>TestimonialsColumn
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/star.js [app-ssr] (ecmascript) <export default as Star>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$avatar$2d$1$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$avatar$2d$1$2e$png__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__ = __turbopack_context__.i('[project]/src/assets/avatar-1.png.mjs { IMAGE => "[project]/src/assets/avatar-1.png (static in ecmascript, tag client)" } [app-ssr] (structured image object with data url, ecmascript)');
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$avatar$2d$2$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$avatar$2d$2$2e$png__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__ = __turbopack_context__.i('[project]/src/assets/avatar-2.png.mjs { IMAGE => "[project]/src/assets/avatar-2.png (static in ecmascript, tag client)" } [app-ssr] (structured image object with data url, ecmascript)');
@@ -1540,37 +1542,87 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$avatar$2d$4
 ;
 ;
 ;
-const testimonials = [
+;
+;
+const defaultTestimonials = [
     {
+        id: "aarav-sharma",
         name: "Aarav Sharma",
         role: "Product Manager, Bangalore",
         text: "EduBh and Amity gave me a portfolio of shipped features before graduation.",
         avatar: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$avatar$2d$1$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$avatar$2d$1$2e$png__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"]
     },
     {
+        id: "ishita-verma",
         name: "Ishita Verma",
         role: "Data Analyst, Gurgaon",
         text: "The Manipal AI track felt like working inside a real analytics team.",
         avatar: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$avatar$2d$2$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$avatar$2d$2$2e$png__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"]
     },
     {
+        id: "rahul-singh",
         name: "Rahul Singh",
         role: "Software Engineer, Pune",
         text: "Every semester had an industry mentor who actually reviewed our work.",
         avatar: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$avatar$2d$3$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$avatar$2d$3$2e$png__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"]
     },
     {
+        id: "sara-mathew",
         name: "Sara Mathew",
         role: "Marketing Strategist, Mumbai",
         text: "The capstone with a global SaaS company completely changed my career trajectory.",
         avatar: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$avatar$2d$4$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$avatar$2d$4$2e$png__$28$static__in__ecmascript$2c$__tag__client$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object__with__data__url$2c$__ecmascript$29$__["default"]
     }
 ];
+const relationshipLabels = {
+    student: "Current student",
+    alumni: "EduBh alumni",
+    applicant: "Applicant",
+    parent: "Parent",
+    other: "EduBh community"
+};
 function TestimonialsColumn() {
+    const [fiveStarFeedback, setFiveStarFeedback] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const controller = new AbortController();
+        async function loadFeedback() {
+            try {
+                const response = await fetch("/api/feedback/featured", {
+                    signal: controller.signal
+                });
+                const payload = await response.json();
+                if (response.ok && payload.success && payload.data) {
+                    setFiveStarFeedback(payload.data);
+                }
+            } catch (error) {
+                if (!(error instanceof DOMException && error.name === "AbortError")) {
+                    console.error("Unable to load five-star feedback:", error);
+                }
+            }
+        }
+        void loadFeedback();
+        return ()=>controller.abort();
+    }, []);
+    const testimonials = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useMemo"])(()=>{
+        const submittedTestimonials = fiveStarFeedback.map((feedback)=>({
+                id: "feedback-" + feedback.id,
+                name: feedback.fullName,
+                role: feedback.course?.trim() || relationshipLabels[feedback.relationship] || "EduBh learner",
+                text: feedback.message,
+                submittedFeedback: true
+            }));
+        return [
+            ...submittedTestimonials,
+            ...defaultTestimonials
+        ];
+    }, [
+        fiveStarFeedback
+    ]);
     const items = [
         ...testimonials,
         ...testimonials
     ];
+    const animationDuration = Math.max(32, testimonials.length * 7);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
         className: "surface-card px-5 py-6 sm:px-6",
         children: [
@@ -1584,7 +1636,7 @@ function TestimonialsColumn() {
                                 children: "Outcomes"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ui/testimonials.tsx",
-                                lineNumber: 45,
+                                lineNumber: 114,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -1592,27 +1644,45 @@ function TestimonialsColumn() {
                                 children: "Love from EduBh alumni"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ui/testimonials.tsx",
-                                lineNumber: 48,
+                                lineNumber: 117,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ui/testimonials.tsx",
-                        lineNumber: 44,
+                        lineNumber: 113,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "rounded-full border border-[rgba(109,132,170,0.16)] bg-white/80 px-4 py-2 text-sm text-[var(--muted)]",
-                        children: "4.9/5 average satisfaction across 2000+ learners"
-                    }, void 0, false, {
+                        className: "flex flex-wrap items-center gap-2",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "rounded-full border border-[rgba(109,132,170,0.16)] bg-white/80 px-4 py-2 text-sm text-[var(--muted)]",
+                                children: "5-star student feedback appears here"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/ui/testimonials.tsx",
+                                lineNumber: 122,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                href: "/feedback",
+                                className: "button-ghost text-sm",
+                                children: "Share feedback"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/ui/testimonials.tsx",
+                                lineNumber: 125,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/src/components/ui/testimonials.tsx",
-                        lineNumber: 52,
+                        lineNumber: 121,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ui/testimonials.tsx",
-                lineNumber: 43,
+                lineNumber: 112,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1627,117 +1697,142 @@ function TestimonialsColumn() {
                             ]
                         },
                         transition: {
-                            duration: 32,
+                            duration: animationDuration,
                             repeat: Infinity,
                             ease: "linear"
                         },
-                        children: items.map((t, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("article", {
+                        children: items.map((testimonial, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("article", {
                                 className: "rounded-[1.55rem] border border-white/80 bg-white/92 p-4 shadow-[0_18px_32px_rgba(16,32,58,0.08)]",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                        className: "mb-3 flex items-center gap-1 text-amber-400",
-                                        children: Array.from({
-                                            length: 5
-                                        }).map((_, starIndex)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__["Star"], {
-                                                className: "h-4 w-4 fill-current"
-                                            }, starIndex, false, {
+                                        className: "mb-3 flex items-center justify-between gap-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center gap-1 text-amber-400",
+                                                children: Array.from({
+                                                    length: 5
+                                                }).map((_, starIndex)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__["Star"], {
+                                                        className: "h-4 w-4 fill-current"
+                                                    }, starIndex, false, {
+                                                        fileName: "[project]/src/components/ui/testimonials.tsx",
+                                                        lineNumber: 149,
+                                                        columnNumber: 21
+                                                    }, this))
+                                            }, void 0, false, {
                                                 fileName: "[project]/src/components/ui/testimonials.tsx",
-                                                lineNumber: 70,
+                                                lineNumber: 147,
+                                                columnNumber: 17
+                                            }, this),
+                                            testimonial.submittedFeedback && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "rounded-full bg-emerald-50 px-2.5 py-1 text-[0.65rem] font-semibold uppercase tracking-wide text-emerald-700",
+                                                children: "Student feedback"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/ui/testimonials.tsx",
+                                                lineNumber: 156,
                                                 columnNumber: 19
-                                            }, this))
-                                    }, void 0, false, {
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
                                         fileName: "[project]/src/components/ui/testimonials.tsx",
-                                        lineNumber: 68,
+                                        lineNumber: 146,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-sm leading-7 text-[var(--foreground)]",
-                                        children: t.text
+                                        className: "line-clamp-4 text-sm leading-7 text-[var(--foreground)]",
+                                        children: testimonial.text
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/testimonials.tsx",
-                                        lineNumber: 73,
+                                        lineNumber: 162,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "mt-4 flex items-center gap-3",
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                                src: t.avatar,
-                                                alt: t.name,
+                                            testimonial.avatar ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                                                src: testimonial.avatar,
+                                                alt: testimonial.name,
                                                 width: 44,
                                                 height: 44,
                                                 className: "h-11 w-11 rounded-2xl object-cover"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/ui/testimonials.tsx",
-                                                lineNumber: 75,
-                                                columnNumber: 17
+                                                lineNumber: 168,
+                                                columnNumber: 19
+                                            }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                "aria-hidden": "true",
+                                                className: "flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#165df5,#0d47c4)] text-sm font-bold uppercase text-white",
+                                                children: testimonial.name.trim().charAt(0) || "E"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/ui/testimonials.tsx",
+                                                lineNumber: 176,
+                                                columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                className: "text-sm",
+                                                className: "min-w-0 text-sm",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "font-semibold text-[var(--foreground)]",
-                                                        children: t.name
+                                                        className: "truncate font-semibold text-[var(--foreground)]",
+                                                        children: testimonial.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/ui/testimonials.tsx",
-                                                        lineNumber: 83,
+                                                        lineNumber: 184,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                        className: "text-[var(--muted)]",
-                                                        children: t.role
+                                                        className: "truncate text-[var(--muted)]",
+                                                        children: testimonial.role
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/ui/testimonials.tsx",
-                                                        lineNumber: 84,
+                                                        lineNumber: 187,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/ui/testimonials.tsx",
-                                                lineNumber: 82,
+                                                lineNumber: 183,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/ui/testimonials.tsx",
-                                        lineNumber: 74,
+                                        lineNumber: 166,
                                         columnNumber: 15
                                     }, this)
                                 ]
-                            }, `${t.name}-${index}`, true, {
+                            }, testimonial.id + "-" + index, true, {
                                 fileName: "[project]/src/components/ui/testimonials.tsx",
-                                lineNumber: 64,
+                                lineNumber: 142,
                                 columnNumber: 13
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/components/ui/testimonials.tsx",
-                        lineNumber: 58,
+                        lineNumber: 132,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white via-white/85 to-transparent"
                     }, void 0, false, {
                         fileName: "[project]/src/components/ui/testimonials.tsx",
-                        lineNumber: 90,
+                        lineNumber: 195,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#f1f6fc] via-[#f1f6fc]/88 to-transparent"
                     }, void 0, false, {
                         fileName: "[project]/src/components/ui/testimonials.tsx",
-                        lineNumber: 91,
+                        lineNumber: 196,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ui/testimonials.tsx",
-                lineNumber: 57,
+                lineNumber: 131,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/ui/testimonials.tsx",
-        lineNumber: 42,
+        lineNumber: 111,
         columnNumber: 5
     }, this);
 }
@@ -2813,7 +2908,7 @@ function ApplicationExperience({ leadSource, resetSignal = 0, containerClassName
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: "mt-4 max-w-3xl text-base leading-8 text-[var(--muted)] sm:text-lg",
-                                    children: "Tell us about your aspirations. Our EduBh advisors will curate the perfect academic path for you at Manipal, Jain, or Sharda University Online."
+                                    children: "Tell us about your aspirations. Our EduBh advisors will curate the perfect academic path for you across our eight partner universities."
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/ui/application-experience.tsx",
                                     lineNumber: 32,
@@ -2835,43 +2930,43 @@ function ApplicationExperience({ leadSource, resetSignal = 0, containerClassName
                                             children: "1"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                                            lineNumber: 40,
+                                            lineNumber: 39,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: "Unified application"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                                            lineNumber: 41,
+                                            lineNumber: 40,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/ui/application-experience.tsx",
-                                    lineNumber: 39,
+                                    lineNumber: 38,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "trust-pill",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                            children: "3"
+                                            children: "8"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                                            lineNumber: 44,
+                                            lineNumber: 43,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: "Partner universities"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                                            lineNumber: 45,
+                                            lineNumber: 44,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/ui/application-experience.tsx",
-                                    lineNumber: 43,
+                                    lineNumber: 42,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2881,26 +2976,26 @@ function ApplicationExperience({ leadSource, resetSignal = 0, containerClassName
                                             children: "24h"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                                            lineNumber: 48,
+                                            lineNumber: 47,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: "Advisor response window"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                                            lineNumber: 49,
+                                            lineNumber: 48,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/ui/application-experience.tsx",
-                                    lineNumber: 47,
+                                    lineNumber: 46,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                            lineNumber: 38,
+                            lineNumber: 37,
                             columnNumber: 11
                         }, this)
                     ]
@@ -2918,17 +3013,17 @@ function ApplicationExperience({ leadSource, resetSignal = 0, containerClassName
                             resetSignal: resetSignal
                         }, void 0, false, {
                             fileName: "[project]/src/components/ui/application-experience.tsx",
-                            lineNumber: 56,
+                            lineNumber: 55,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/components/ui/application-experience.tsx",
-                        lineNumber: 55,
+                        lineNumber: 54,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/ui/application-experience.tsx",
-                    lineNumber: 54,
+                    lineNumber: 53,
                     columnNumber: 9
                 }, this)
             ]

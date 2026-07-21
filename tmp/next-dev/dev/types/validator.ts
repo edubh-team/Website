@@ -101,6 +101,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../../src/app/feedback/page.tsx
+{
+  type __IsExpected<Specific extends AppPageConfig<"/feedback">> = Specific
+  const handler = {} as typeof import("../../../../src/app/feedback/page.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../../src/app/manipal-courses/page.tsx
 {
   type __IsExpected<Specific extends AppPageConfig<"/manipal-courses">> = Specific
@@ -132,6 +141,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/applications">> = Specific
   const handler = {} as typeof import("../../../../src/app/api/applications/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../../src/app/api/feedback/featured/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/feedback/featured">> = Specific
+  const handler = {} as typeof import("../../../../src/app/api/feedback/featured/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

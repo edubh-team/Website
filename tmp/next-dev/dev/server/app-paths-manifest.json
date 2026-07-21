@@ -1,9 +1,7 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
+  "/api/applications/route": "app/api/applications/route.js",
+  "/api/feedback/featured/route": "app/api/feedback/featured/route.js",
   "/apply/page": "app/apply/page.js",
-  "/contact/[slug]/page": "app/contact/[slug]/page.js",
-  "/contact/page": "app/contact/page.js",
-  "/courses/[id]/page": "app/courses/[id]/page.js",
-  "/courses/page": "app/courses/page.js",
+  "/feedback/page": "app/feedback/page.js",
   "/page": "app/page.js"
 }

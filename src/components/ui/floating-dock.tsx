@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Home, BookOpen, PenSquare, Phone } from "lucide-react";
+import { Home, BookOpen, MessageSquareHeart, PenSquare, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const navItems = [
   { href: "/", label: "Home", icon: Home },
   { href: "/courses", label: "Courses", icon: BookOpen },
   { href: "/apply", label: "Apply", icon: PenSquare },
+  { href: "/feedback", label: "Feedback", icon: MessageSquareHeart },
   { href: "/contact", label: "Contact", icon: Phone },
 ];
 
@@ -85,3 +86,4 @@ export function FloatingDock() {
     </motion.nav>
   );
 }
+

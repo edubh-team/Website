@@ -126,6 +126,11 @@ export function SiteFooter() {
                     Contact support
                   </Link>
                 </li>
+                <li>
+                  <Link href="/feedback" className="transition hover:text-white">
+                    Share feedback
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
@@ -171,3 +176,4 @@ export function SiteFooter() {
     </footer>
   );
 }
+
