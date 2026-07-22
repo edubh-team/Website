@@ -2240,10 +2240,6 @@
     background-color: linear-gradient(180deg, ; D255,  �S0.94)  �� 41, 246, 252, ;
   }
 
-  .bg-\[linear-gradient\(180deg\,C\8 D255\,\4 �S0\.94\)\17 ��\1e 41\,246\,252\,0\.86\)\)\] {
-    background-color: linear-gradient(180deg, C D255,  �S0.94)  �� 41, 246, 252, ;
-  }
-
   .bg-\[linear-gradient\(180deg\,C���22\,93\,245\,0\.08\)\15 �455\,\4 ��0\.92\)\)\] {
     background-color: linear-gradient(180deg, C���22, 93, 245, .08)  �455, ;
   }
@@ -2294,10 +2290,6 @@
 
   .bg-\[�7�\3 r-gradient\(180deg\,\%\1 D255\,\4 �S0\.94\)\17 ��\1e 41\,246\,252\,0\.86\)\)\] {
     background-color: �7� r-gradient(180deg, %  D255,  �S0.94)  �� 41, 246, 252, ;
-  }
-
-  .bg-\[�t�\2 -gradient\(180deg\,C\8 D255\,\4 �S0\.94\)\17 ��\1e 41\,246\,252\,0\.86\)\)\] {
-    background-color: �t� -gradient(180deg, C D255,  �S0.94)  �� 41, 246, 252, ;
   }
 
   .bg-amber-50 {
@@ -2753,24 +2745,12 @@
     background-image: radial-gradient(circle, #165df52e, � � parent 68%);
   }
 
-  .bg-\[radial-gradient\(circle\,rgba\(22\,93\,245\,0\.18\)\,�\1c �\6 parent_68\%\)\] {
-    background-image: radial-gradient(circle, #165df52e, � � parent 68%);
-  }
-
-  .bg-\[radial-gradient\(circle\,rgba\(22\,93\,245\,0\.18\)\,�B�\6 parent_68\%\)\] {
-    background-image: radial-gradient(circle, #165df52e, �B� parent 68%);
-  }
-
   .bg-\[radial-gradient\(circle\,rgba\(22\,93\,245\,0\.18\)\,�C�\6 parent_68\%\)\] {
     background-image: radial-gradient(circle, #165df52e, �C� parent 68%);
   }
 
   .bg-\[radial-gradient\(circle\,rgba\(22\,93\,245\,0\.22\)\,transparent_62\%\)\] {
     background-image: radial-gradient(circle, #165df538, #0000 62%);
-  }
-
-  .bg-\[radial-gradient\(circle\,rgba\(22\,93\,245\,0\.34\)\,trans\2 k��_64\%\)\] {
-    background-image: radial-gradient(circle, #165df557, trans k�� 64%);
   }
 
   .bg-\[radial-gradient\(circle\,rgba\(22\,93\,245\,0\.34\)\,transN\#��_64\%\)\] {
@@ -4238,14 +4218,6 @@
     key:    ;
   }
 
-  .\[key\:\e \$�ng\] {
-    key:  $ �ng;
-  }
-
-  .\[key\:\$\13 4ng\] {
-    key: $  4ng;
-  }
-
   .\[key\:6�4ng\] {
     key: 6�4ng;
   }
@@ -4282,16 +4254,8 @@
     key: �  ;
   }
 
-  .\[key\:�F�\] {
-    key: �F�;
-  }
-
   .\[key\:�S\14 \] {
     key: �S ;
-  }
-
-  .\[key\:�S4ng\] {
-    key: �S4ng;
   }
 
   .\[key\:��4ng\] {
@@ -4312,10 +4276,6 @@
 
   .\[name\:�1�ng\] {
     name: �1�ng;
-  }
-
-  .\[name\:�4�ng\] {
-    name: �4�ng;
   }
 
   .\[scrollbar-width\:none\] {
@@ -4780,12 +4740,6 @@
   @media (min-width: 40rem) {
     .sm\:grid-cols-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-
-  @media (min-width: 40rem) {
-    .sm\:grid-cols-22 {
-      grid-template-columns: repeat(22, minmax(0, 1fr));
     }
   }
 

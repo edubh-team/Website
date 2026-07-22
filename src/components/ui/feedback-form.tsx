@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { CheckCircle2, LoaderCircle, Send, Star } from "lucide-react";
 import { saveFeedback, type FeedbackData } from "@/lib/firebase-db";
+import { getUtmAttribution } from "@/lib/utm";
+import { trackMetaPixelCustomEvent } from "@/lib/meta-pixel";
 
 type FeedbackFormState = {
   fullName: string;
@@ -71,6 +73,7 @@ export function FeedbackForm() {
     setStatus("submitting");
     setErrorMessage("");
 
+    const utmAttribution = getUtmAttribution();
     const result = await saveFeedback({
       fullName: form.fullName,
       email: form.email,
@@ -78,9 +81,14 @@ export function FeedbackForm() {
       course: form.course,
       rating: form.rating,
       message: form.message,
+      ...(utmAttribution ? { utmAttribution } : {}),
     });
 
     if (result.success) {
+      trackMetaPixelCustomEvent("FeedbackSubmitted", {
+        rating: form.rating,
+        relationship: form.relationship,
+      });
       window.localStorage.setItem(storageKey, "true");
       setStatus("submitted");
       setForm(initialState);
@@ -294,3 +302,6 @@ export function FeedbackForm() {
     </form>
   );
 }
+
+
+

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Send } from "lucide-react";
+import { trackMetaPixelEvent } from "@/lib/meta-pixel";
 
 type BranchInquiryFormProps = {
   branch: string;
@@ -12,6 +13,10 @@ export function BranchInquiryForm({ branch }: BranchInquiryFormProps) {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    trackMetaPixelEvent("Contact", {
+      content_name: branch,
+      content_category: "Branch inquiry",
+    });
     setSubmitted(true);
   }
 
@@ -118,3 +123,4 @@ export function BranchInquiryForm({ branch }: BranchInquiryFormProps) {
     </div>
   );
 }
+

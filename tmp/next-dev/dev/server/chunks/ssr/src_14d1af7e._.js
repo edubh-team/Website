@@ -2147,7 +2147,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$mo
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$zod$2f$v4$2f$classic$2f$external$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__ = __turbopack_context__.i("[project]/node_modules/zod/v4/classic/external.js [app-ssr] (ecmascript) <export * as z>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$courses$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/courses.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utm$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/utm.ts [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$meta$2d$pixel$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/meta-pixel.ts [app-ssr] (ecmascript)");
 "use client";
+;
+;
 ;
 ;
 ;
@@ -2398,7 +2402,8 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                 },
                 body: JSON.stringify({
                     ...result.data,
-                    leadSource
+                    leadSource,
+                    utmAttribution: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utm$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getUtmAttribution"])() ?? undefined
                 })
             });
             const payload = await response.json();
@@ -2407,6 +2412,11 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                 setRequestError(payload.error ?? "Please fix the highlighted fields before submitting again.");
                 return;
             }
+            const selectedProgram = programOptions.find((option)=>option.value === result.data.program)?.label || result.data.program;
+            (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$meta$2d$pixel$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["trackMetaPixelEvent"])("Lead", {
+                content_name: selectedProgram,
+                content_category: "Course application"
+            });
             setStatus("success");
             onSuccess?.();
         } catch  {
@@ -2441,12 +2451,12 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                     children: successMessage
                 }, void 0, false, {
                     fileName: "[project]/src/components/ui/application-form.tsx",
-                    lineNumber: 202,
+                    lineNumber: 212,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/ui/application-form.tsx",
-                lineNumber: 200,
+                lineNumber: 210,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -2471,12 +2481,12 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                     children: requestError ?? "Please fix the highlighted fields before submitting again."
                 }, void 0, false, {
                     fileName: "[project]/src/components/ui/application-form.tsx",
-                    lineNumber: 215,
+                    lineNumber: 225,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/ui/application-form.tsx",
-                lineNumber: 213,
+                lineNumber: 223,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["motion"].form, {
@@ -2502,7 +2512,7 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                         value: leadSource
                     }, void 0, false, {
                         fileName: "[project]/src/components/ui/application-form.tsx",
-                        lineNumber: 233,
+                        lineNumber: 243,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2522,7 +2532,7 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         disabled: isSubmitting
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 237,
+                                        lineNumber: 247,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -2531,7 +2541,7 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         children: "Full Name"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 247,
+                                        lineNumber: 257,
                                         columnNumber: 13
                                     }, this),
                                     errors.fullName && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2539,13 +2549,13 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         children: errors.fullName
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 251,
+                                        lineNumber: 261,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/ui/application-form.tsx",
-                                lineNumber: 236,
+                                lineNumber: 246,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2561,7 +2571,7 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         disabled: isSubmitting
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 256,
+                                        lineNumber: 266,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -2570,7 +2580,7 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         children: "Email"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 265,
+                                        lineNumber: 275,
                                         columnNumber: 13
                                     }, this),
                                     errors.email && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2578,19 +2588,19 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         children: errors.email
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 269,
+                                        lineNumber: 279,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/ui/application-form.tsx",
-                                lineNumber: 255,
+                                lineNumber: 265,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ui/application-form.tsx",
-                        lineNumber: 235,
+                        lineNumber: 245,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2609,7 +2619,7 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         disabled: isSubmitting
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 276,
+                                        lineNumber: 286,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -2618,7 +2628,7 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         children: "Phone"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 285,
+                                        lineNumber: 295,
                                         columnNumber: 13
                                     }, this),
                                     errors.phone && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2626,13 +2636,13 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         children: errors.phone
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 289,
+                                        lineNumber: 299,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/ui/application-form.tsx",
-                                lineNumber: 275,
+                                lineNumber: 285,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2649,12 +2659,12 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                                 children: option.label
                                             }, option.value || "state-placeholder", false, {
                                                 fileName: "[project]/src/components/ui/application-form.tsx",
-                                                lineNumber: 302,
+                                                lineNumber: 312,
                                                 columnNumber: 17
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 294,
+                                        lineNumber: 304,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -2663,7 +2673,7 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         children: "State"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 307,
+                                        lineNumber: 317,
                                         columnNumber: 13
                                     }, this),
                                     errors.state && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2671,19 +2681,19 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         children: errors.state
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 311,
+                                        lineNumber: 321,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/ui/application-form.tsx",
-                                lineNumber: 293,
+                                lineNumber: 303,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ui/application-form.tsx",
-                        lineNumber: 274,
+                        lineNumber: 284,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2703,12 +2713,12 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                                 children: option.label
                                             }, option.value || "placeholder", false, {
                                                 fileName: "[project]/src/components/ui/application-form.tsx",
-                                                lineNumber: 326,
+                                                lineNumber: 336,
                                                 columnNumber: 17
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 318,
+                                        lineNumber: 328,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -2717,7 +2727,7 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         children: "Program Interest"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 331,
+                                        lineNumber: 341,
                                         columnNumber: 13
                                     }, this),
                                     errors.program && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2725,13 +2735,13 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         children: errors.program
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 335,
+                                        lineNumber: 345,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/ui/application-form.tsx",
-                                lineNumber: 317,
+                                lineNumber: 327,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2747,7 +2757,7 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         disabled: isSubmitting
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 340,
+                                        lineNumber: 350,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -2756,7 +2766,7 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         children: "Current Qualification"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 349,
+                                        lineNumber: 359,
                                         columnNumber: 13
                                     }, this),
                                     errors.qualification && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2764,19 +2774,19 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                         children: errors.qualification
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/ui/application-form.tsx",
-                                        lineNumber: 353,
+                                        lineNumber: 363,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/ui/application-form.tsx",
-                                lineNumber: 339,
+                                lineNumber: 349,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ui/application-form.tsx",
-                        lineNumber: 316,
+                        lineNumber: 326,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2792,21 +2802,21 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                             className: "h-4 w-4 animate-spin rounded-full border-2 border-white/35 border-t-white"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/ui/application-form.tsx",
-                                            lineNumber: 366,
+                                            lineNumber: 376,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                             children: "Submitting..."
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/ui/application-form.tsx",
-                                            lineNumber: 367,
+                                            lineNumber: 377,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true) : "Submit application"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ui/application-form.tsx",
-                                lineNumber: 359,
+                                lineNumber: 369,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2814,25 +2824,25 @@ function ApplicationForm({ className, leadSource, onSuccess, resetSignal = 0 }) 
                                 children: "By continuing, you agree to be contacted by EduBh advisors regarding your application."
                             }, void 0, false, {
                                 fileName: "[project]/src/components/ui/application-form.tsx",
-                                lineNumber: 373,
+                                lineNumber: 383,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/ui/application-form.tsx",
-                        lineNumber: 358,
+                        lineNumber: 368,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/ui/application-form.tsx",
-                lineNumber: 226,
+                lineNumber: 236,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/ui/application-form.tsx",
-        lineNumber: 199,
+        lineNumber: 209,
         columnNumber: 5
     }, this);
 }

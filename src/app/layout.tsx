@@ -3,6 +3,8 @@ import "./globals.css";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import { SiteFooter } from "@/components/ui/footer";
 import { SiteHeader } from "@/components/ui/site-header";
+import { UtmTracker } from "@/components/utm-tracker";
+import { MetaPixel } from "@/components/meta-pixel";
 
 export const metadata: Metadata = {
   title: "EduBh - Industry-Ready Education",
@@ -18,6 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <UtmTracker />
+        <MetaPixel />
         <div className="site-shell min-h-screen">
           <div
             aria-hidden="true"
@@ -38,4 +42,6 @@ export default function RootLayout({
     </html>
   );
 }
+
+
 

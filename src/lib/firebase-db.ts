@@ -1,5 +1,6 @@
 import { collection, addDoc, doc, updateDoc, getDocs, query, orderBy, limit, runTransaction, where } from 'firebase/firestore'; // Import Firestore functions
 import { firestore } from './firebase'; // Import only firestore
+import type { UtmAttribution } from './utm';
 
 // Check if Firebase is initialized
 const isFirebaseInitialized = () => Boolean(firestore);
@@ -13,6 +14,7 @@ export interface ApplicationData {
   program: string;
   qualification?: string;
   leadSource?: string;
+  utmAttribution?: UtmAttribution;
   timestamp: number;
   status: 'pending' | 'approved' | 'rejected';
 }
@@ -162,6 +164,7 @@ export interface FeedbackData {
   course?: string;
   rating: number;
   message: string;
+  utmAttribution?: UtmAttribution;
   timestamp: number;
   status: 'new';
 }
@@ -296,3 +299,5 @@ export const fetchFiveStarFeedback = async (): Promise<{
     };
   }
 };
+
+

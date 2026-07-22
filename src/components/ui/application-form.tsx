@@ -4,6 +4,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { z } from "zod";
 import { courses } from "@/data/courses";
+import { getUtmAttribution } from "@/lib/utm";
+import { trackMetaPixelEvent } from "@/lib/meta-pixel";
 
 export const leadSourceOptions = ["Apply Now", "Book a Free Call"] as const;
 export type LeadSource = (typeof leadSourceOptions)[number];
@@ -169,6 +171,7 @@ export function ApplicationForm({
         body: JSON.stringify({
           ...result.data,
           leadSource,
+          utmAttribution: getUtmAttribution() ?? undefined,
         }),
       });
 
@@ -185,6 +188,13 @@ export function ApplicationForm({
         return;
       }
 
+      const selectedProgram =
+        programOptions.find((option) => option.value === result.data.program)
+          ?.label || result.data.program;
+      trackMetaPixelEvent("Lead", {
+        content_name: selectedProgram,
+        content_category: "Course application",
+      });
       setStatus("success");
       onSuccess?.();
     } catch {
@@ -379,3 +389,5 @@ export function ApplicationForm({
     </div>
   );
 }
+
+

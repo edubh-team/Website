@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { FAQAccordion } from "@/components/ui/faq-accordion";
 import { offices } from "@/data/offices";
+import { trackMetaPixelEvent } from "@/lib/meta-pixel";
 
 type ContactForm = {
   name: string;
@@ -30,6 +31,9 @@ export default function ContactPage() {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    trackMetaPixelEvent("Contact", {
+      content_name: "General contact form",
+    });
     setSubmitted(true);
   }
 
@@ -222,5 +226,6 @@ export default function ContactPage() {
     </div>
   );
 }
+
 
 
